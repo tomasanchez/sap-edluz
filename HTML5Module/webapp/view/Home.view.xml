@@ -1,7 +1,13 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ns.HTML5Module.controller.Home" displayBlock="true">
-	<Page id="page" title="{i18n>title}" class="sapUiResponsiveContentPadding">
+	<Page id="page" title="{i18n>homeTitle}" class="sapUiResponsiveContentPadding">
 	<content>
-	    <Button xmlns="sap.m" text="Hello World!" id="button0"/>
+	    <sap.ui.layout:Grid xmlns:sap.ui.layout="sap.ui.layout" id="grid0">
+	        <sap.ui.layout:content>
+	            <ObjectListItem title="Reclamos" number="9999" numberUnit="Activos" intro="Debugg" icon="sap-icon://customer-briefing" id="item0"/>
+	            <ObjectListItem number="3" numberUnit="Total" intro="Debugg" icon="sap-icon://customer" id="item1" title="Clientes"/>
+	            <ObjectListItem title="Tecnicos" intro="Debugg" icon="sap-icon://eam-work-order" id="item2"/>
+	            <ObjectListItem title="Consumos" intro="Debugg" icon="sap-icon://line-chart-time-axis" id="item3"/></sap.ui.layout:content>
+	    </sap.ui.layout:Grid>
 	</content>
 	</Page>
 </mvc:View>
