@@ -1,0 +1,7 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ns.HTML5Module.controller.Home" displayBlock="true">
+	<Page id="page" title="{i18n>title}" class="sapUiResponsiveContentPadding">
+	<content>
+	    <Button xmlns="sap.m" text="Hello World!" id="button0"/>
+	</content>
+	</Page>
+</mvc:View>
