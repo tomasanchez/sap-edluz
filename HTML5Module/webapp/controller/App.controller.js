@@ -8,7 +8,8 @@ sap.ui.define([
 		return Controller.extend("ns.HTML5Module.controller.App", {
             getRouter: function () {
 			return sap.ui.core.UIComponent.getRouterFor(this);
-		},
+        },
+    
 		onNavBack: function (oEvent) {
 			var oHistory, sPreviousHash;
 			oHistory = History.getInstance();
@@ -18,6 +19,12 @@ sap.ui.define([
 			} else {
 				this.getRouter().navTo("appHome", {}, true /*no history*/ );
 			}
-		}
+        },
+        
+
+        navToTechs: function(oEvent){
+            this.getRouter().navTo("techsList");
+        }
+
 		});
 	});

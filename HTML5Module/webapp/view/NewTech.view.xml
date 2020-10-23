@@ -1,0 +1,91 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ns.HTML5Module.controller.NewTech" displayBlock="true">
+
+<Page xmlns="sap.m" id="pageId" title="Page Title" floatingFooter="true">
+
+    <headerContent>
+
+        <Button icon="sap-icon://action" tooltip="Share" id="button3"/>
+
+        
+
+    </headerContent>
+
+    <footer>
+
+        <OverflowToolbar id="toolbar2">
+
+            <ToolbarSpacer/>
+
+            <Button type="Accept" text="Accept"/>
+
+            </OverflowToolbar>
+
+        
+
+    </footer>
+
+    <content>
+
+        <sap.ui.layout.form:Form xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" id="form4">
+
+            <sap.ui.layout.form:formContainers>
+
+                <sap.ui.layout.form:FormContainer title="Title" id="container8">
+
+                    <sap.ui.layout.form:formElements>
+
+                        <sap.ui.layout.form:FormElement label="Label" id="element19">
+
+                            <sap.ui.layout.form:fields>
+
+                                <Input width="100%" id="input12"/>
+
+                            </sap.ui.layout.form:fields>
+
+                        </sap.ui.layout.form:FormElement>
+
+                        <sap.ui.layout.form:FormElement label="Label" id="element2">
+
+                            <sap.ui.layout.form:fields>
+
+                                <Input width="100%" id="input0"/>
+
+                            </sap.ui.layout.form:fields>
+
+                        </sap.ui.layout.form:FormElement>
+
+                    </sap.ui.layout.form:formElements>
+
+                </sap.ui.layout.form:FormContainer>
+
+            </sap.ui.layout.form:formContainers>
+
+            <sap.ui.layout.form:layout>
+
+                <sap.ui.layout.form:ResponsiveGridLayout id="layout1"/>
+
+            </sap.ui.layout.form:layout></sap.ui.layout.form:Form>
+
+        <sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true" layout="ResponsiveGridLayout" id="form3">
+
+            <sap.ui.layout.form:content>
+
+                <sap.ui.core:Title text="Title" id="title8"/>
+
+                <Label text="Label 1" id="label2"/>
+
+                <Input width="100%" id="input7"/>
+
+                <Input width="100%" id="input8"/>
+
+                <Label text="Label 2" id="label3"/>
+
+                <Input width="100%" id="input9"/></sap.ui.layout.form:content>
+
+        </sap.ui.layout.form:SimpleForm>
+
+    </content>
+
+    </Page>
+
+</mvc:View>
