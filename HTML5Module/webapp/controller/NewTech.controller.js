@@ -47,7 +47,10 @@ sap.ui.define([
 					success: function (resultado) {
 						MessageToast.show("Success: New Client Created");
 						this.getView().setBusy(false);
-
+                        aInputs.forEach(function (oInput) {
+                            oInput.setValue(null);
+                            oInput.setValueState("None");
+                        });
 					}.bind(this),
 					error: function (error) {
 						MessageToast.show("Error: Something went wrong");
@@ -55,10 +58,7 @@ sap.ui.define([
 					}
 				});
                 
-			aInputs.forEach(function (oInput) {
-				oInput.setValue(null);
-				oInput.setValueState("None");
-			});
+			
 			} else {
 				MessageBox.alert("Oops! An error has occurred, verify fields.");
 			}
@@ -71,13 +71,13 @@ sap.ui.define([
         
         _createTech: function (aInputs) {
 			return {
-				Idtech: Math.floor(Math.random() * 32768),
+				Idtech: Math.floor(Math.random() * 32767),
 				Name: aInputs[0].getDOMValue(),
                 Lastname: aInputs[1].getDOMValue(),
                 Province: aInputs[3].getDOMValue(),
                 City: aInputs[4].getDOMValue(),
                 Street: aInputs[5].getDOMValue(),
-                ZIP: aInputs[6].getDOMValue(),
+                Zip: aInputs[6].getDOMValue(),
                 Tel: aInputs[2].getDOMValue()
 			};
 		},
