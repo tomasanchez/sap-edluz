@@ -1,19 +1,91 @@
 sap.ui.define([
-    "ns/HTML5Module/controller/App.controller"
+    "ns/HTML5Module/controller/App.controller",
+    "sap/m/MessageToast",
+	"sap/m/MessageBox"
 	],
-	function (AppController) {
-		"use strict";
+	function (AppController, MessageToast, MessageBox) {
+        "use strict";
+        var oController;
 
 		return AppController.extend("ns.HTML5Module.controller.NewTech", {
-            /**
+        /**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
 		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 		 * @memberOf tosa8.my_gym.view.App
 		 */
 		onInit: function () {
+            oController = this;
+        },
+        
+        onCreate: function(){
+            var oModel = oController.getView().getModel();
 
-		}
+			var aInputs = [
+					oController.byId("name"),
+                    oController.byId("lastName"),
+                    oController.byId("tel"),
+					oController.byId("province"),
+					oController.byId("city"),
+					oController.byId("street"),
+                    oController.byId("zip")
+                ],
+                
+			bValidationError = false;
 
+			aInputs.forEach(function (oInput) {
+				bValidationError = oController._validateInput(oInput) || bValidationError;
+			}, oController);
+
+			if (!bValidationError) {
+
+                var oEntity = oController._createTech(aInputs)
+
+				oController.getView().setBusy(true);
+
+                
+				oModel.create("/TecnicosSet", oEntity, {
+					success: function (resultado) {
+						MessageToast.show("Success: New Client Created");
+						this.getView().setBusy(false);
+
+					}.bind(this),
+					error: function (error) {
+						MessageToast.show("Error: Something went wrong");
+						oController.getView().setBusy(false);
+					}
+				});
+                
+			aInputs.forEach(function (oInput) {
+				oInput.setValue(null);
+				oInput.setValueState("None");
+			});
+			} else {
+				MessageBox.alert("Oops! An error has occurred, verify fields.");
+			}
+        },
+
+
+        /*
+            Private functions
+        */
+        
+        _createTech: function (aInputs) {
+			return {
+				Idtech: Math.floor(Math.random() * 32768),
+				Name: aInputs[0].getDOMValue(),
+                Lastname: aInputs[1].getDOMValue(),
+                Province: aInputs[3].getDOMValue(),
+                City: aInputs[4].getDOMValue(),
+                Street: aInputs[5].getDOMValue(),
+                ZIP: aInputs[6].getDOMValue(),
+                Tel: aInputs[2].getDOMValue()
+			};
+		},
+
+        _cleanDOMValues: function (oInput){
+            oInput.setValue(null);
+			oInput.setValueState("None");
+        }
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
 		 * (NOT before the first rendering! onInit() is used for that one!).

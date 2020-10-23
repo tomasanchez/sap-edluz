@@ -24,7 +24,34 @@ sap.ui.define([
 
         navToTechs: function(oEvent){
             this.getRouter().navTo("techsList");
-        }
+        },
+
+        navToNewTech: function(oEvent){
+            this.getRouter.navTo("newTech");
+        },
+
+        /*
+            Inputs
+        */
+        onValueChange: function (oEvent) {
+			var oInput = oEvent.getSource();
+			this._validateInput(oInput);
+
+        },
+        
+        _validateInput: function (oInput) {
+			var sValueState = "None";
+			var bValidationError = false;
+			var oString = oInput.getDOMValue();
+
+			if (oString.length === 0) {
+				bValidationError = true;
+				sValueState = "Error";
+			}
+			oInput.setValueState(sValueState);
+
+			return bValidationError;
+        },
 
 		});
 	});
