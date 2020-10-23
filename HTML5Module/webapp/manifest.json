@@ -103,13 +103,23 @@
           "target": [
             "Home"
           ]
-        }
+        },
+        {
+            "name": "techsList",
+            "pattern": "techs",
+			"target": "Techs"
+		}
       ],
       "targets": {
         "Home": {
           "viewType": "XML",
           "viewName": "Home",
-          "viewLevel": 1
+          "viewLevel": 0
+        },
+        "Techs":{
+            "viewType": "XML",
+            "viewName": "Techs",
+            "viewLevel": 1
         }
       }
     }
