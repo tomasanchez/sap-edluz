@@ -1,10 +1,12 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ns.HTML5Module.controller.Techs" displayBlock="true">
-<Page xmlns="sap.m" id="pageId" title="Page Title" floatingFooter="true" showNavButton="true" navButtonPress=".onNavBack">
+<Page xmlns="sap.m" id="pageId" title="Page Title" floatingFooter="true" navButtonPress=".onNavBack" showNavButton="true">
     <content>
-        <VBox id="vbox0">
-            <Text text="Lorem ipsum dolor st amet magna aliquyam erat, sed diam voluptuaum.       Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.       Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor       invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet."/>
-            
-        </VBox>
+        
+        <List noDataText="No data" id="list0" growing="true" items="{path:'/TecnicosSet',filters:[{path:'Province',operator:'StartsWith',value1:''},{path:'City',operator:'StartsWith',value1:''}],sorter:[{path:'Idtech',descending:false}]}" sticky="HeaderToolbar">
+        <items>
+            <FeedListItem icon="sap-icon://inventory" sender="{Lastname}, {Name}" text="In {City}, {Province}" info="Waiting for Assignment" type="Navigation"/>
+        </items>
+        </List>
         
     </content>
     <footer>
