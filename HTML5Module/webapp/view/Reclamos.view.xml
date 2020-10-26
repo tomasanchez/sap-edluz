@@ -1,4 +1,5 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ns.HTML5Module.controller.App" displayBlock="true">
+<Page xmlns="sap.m" id="pageId" title="Page Title" floatingFooter="true" navButtonPress=".onNavBack" showNavButton="true">
 		
 <Table noDataText="Drop column list items here and columns in the area above" id="table0" xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" cd:w5g.dt.context="/ClientesSet/Reclamos">
 		
@@ -48,6 +49,8 @@
 		
             </header>
 		
-        </Column></columns></Table>
-		
+        </Column>
+        </columns>
+        </Table>
+		</Page>
 </mvc:View>

@@ -3,7 +3,8 @@
 	<content>
 	    <sap.ui.layout:Grid xmlns:sap.ui.layout="sap.ui.layout" id="grid0">
 	        <sap.ui.layout:content>
-	            <ObjectListItem title="Reclamos" number="9999" numberUnit="Activos" intro="Debugg" icon="sap-icon://customer-briefing" id="item0" type="Navigation"/>
+	            <ObjectListItem title="Reclamos" number="9999" numberUnit="Activos" intro="Debugg" icon="sap-icon://customer-briefing" id="item0" 
+               press="navToReclamos" type="Navigation"/>
 	            <ObjectListItem number="3" numberUnit="Total" intro="Debugg" icon="sap-icon://customer" id="item1" title="Clientes" type="Navigation"/>
 	            <ObjectListItem title="Tecnicos" intro="Debugg" icon="sap-icon://eam-work-order" id="item2" press="navToTechs" type="Navigation"/>
 	            <ObjectListItem title="Consumos" intro="Debugg" icon="sap-icon://line-chart-time-axis" id="item3" type="Navigation"/>

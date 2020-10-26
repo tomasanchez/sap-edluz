@@ -29,6 +29,10 @@ sap.ui.define([
         navToNewTech: function(oEvent){
             this.getRouter.navTo("newTech");
         },
+        
+        navToReclamos: function(oEvent){
+            this.getRouter.navTo("complaint");
+        },
 
         /*
             Inputs
