@@ -1,56 +1,73 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ns.HTML5Module.controller.App" displayBlock="true">
-<Page xmlns="sap.m" id="pageId" title="Page Title" floatingFooter="true" navButtonPress=".onNavBack" showNavButton="true">
-		
-<Table noDataText="Drop column list items here and columns in the area above" id="table0" xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" cd:w5g.dt.context="/ClientesSet/Reclamos">
-		
-    <items>
-		
-        <ColumnListItem type="Active" id="item0">
-		
-            <cells>
-		
-                <Text text="Row 1 Cell 1" id="text2"/>
-		
-                <Text text="Row 1 Cell 2" id="text3"/>
-		
-                <Text text="Row 1 Cell 3" id="text4"/></cells>
-		
-        </ColumnListItem>
-		
-    </items>
-		
-    <columns>
-		
-        <Column id="column0">
-		
-            <header>
-		
-                <Label text="{i18n>colReclamo}" id="label0"/>
-		
-            </header>
-		
-        </Column>
-		
-        <Column id="column1">
-		
-            <header>
-		
-                <Label text="{i18n>colType}" id="label1"/>
-		
-            </header>
-		
-        </Column>
-		
-        <Column id="column2">
-		
-            <header>
-		
-                <Label text="{i18n>colDate}" id="label2"/>
-		
-            </header>
-		
-        </Column>
-        </columns>
-        </Table>
-		</Page>
+<mvc:View xmlns:uxap="sap.uxap" xmlns:layout="sap.ui.layout" xmlns:f="sap.f" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ns.HTML5Module.controller.App" displayBlock="true">
+    <Page showHeader="true" xmlns="sap.m" id="pageId" title="{i18n>TitleComplaint}" floatingFooter="true" navButtonPress=".onNavBack" showNavButton="true">
+        <uxap:ObjectPageLayout>
+            <uxap:headerTitle>
+                <uxap:ObjectPageDynamicHeaderTitle >
+                    <uxap:expandedHeading>
+                        <Title id="_title1" text="N° customer" wrapping="true"/>
+                    </uxap:expandedHeading>
+                    <uxap:snappedHeading>
+                        <FlexBox fitContainer="true" alignItems="Center">
+                            <f:Avatar src="sap-icon://customer" class="sapUiTinyMarginEnd" backgroundColor="Random"/>
+                            <Title id="_title2" text="" wrapping="true"/>
+                        </FlexBox>
+                    </uxap:snappedHeading>
+                </uxap:ObjectPageDynamicHeaderTitle>
+            </uxap:headerTitle>
+            <uxap:headerContent>
+                <FlexBox width="100%" alignItems="Start" direction="Row" justifyContent="Start">
+                    <items>
+                        <FlexBox wrap="Wrap" width="700%" justifyContent="Start">
+                            <f:Avatar class="sapUiSmallMarginEnd" src="sap-icon://customer" displaySize="L" backgroundColor="Random" />
+                            <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                                <ObjectStatus id="_name" title="{i18n>Name}" text=""/>
+                                <ObjectStatus id="_lastname" title="{i18n>Lastname}" text=""/>
+                                <ObjectStatus id="_city" title="{i18n>City}" text=""/>
+                                <ObjectStatus id="_phone" title="{i18n>Phone}" text=""/>
+                            </layout:VerticalLayout>
+                        </FlexBox>
+                    </items>
+                </FlexBox>
+            </uxap:headerContent>
+            <uxap:sections>
+                <uxap:ObjectPageSection title="{i18n>Detail}">
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection >
+                            <uxap:blocks>
+                                <Table id="_ClaimDetail" items="{ClaimDetail>/}" noDataText="Empty :)" >
+                                    <items>
+                                        <ColumnListItem id="item0" >
+                                            <cells>
+                                                <ObjectIdentifier text="{ClaimDetail>idcomplaint}"/>
+                                                <ObjectAttribute text="{ClaimDetail>type}"/>
+                                                <ObjectAttribute text="{ClaimDetail>date}"/>
+                                                <ObjectAttribute text="{ClaimDetail>status}"/>
+                                                <ObjectAttribute text="{ClaimDetail>urgency}"/>                                                    </cells>
+                                        </ColumnListItem>
+                                    </items>
+                                    <columns>
+                                        <Column>
+                                            <Label text="{i18n>colComplaint}"/>
+                                        </Column>
+                                        <Column>
+                                            <Label text="{i18n>colType}"/>
+                                        </Column>
+                                        <Column>
+                                            <Label text="{i18n>colDate}"/>
+                                        </Column>
+                                        <Column>
+                                            <Label text="{i18n>colStatus}"/>
+                                        </Column>
+                                        <Column>
+                                            <Label text="{i18n>colUrgency}"/>
+                                        </Column>
+                                    </columns>
+                                </Table>
+                            </uxap:blocks>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                </uxap:ObjectPageSection>
+            </uxap:sections>
+        </uxap:ObjectPageLayout>
+    </Page>
 </mvc:View>
