@@ -27,7 +27,7 @@ sap.ui.define([
         },
 
         navToNewTech: function(oEvent){
-            this.getRouter.navTo("newTech");
+            this.getRouter().navTo("newTech");
         },
 
         /*

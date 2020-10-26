@@ -20,17 +20,8 @@ sap.ui.define([
         onCreate: function(){
             var oModel = oController.getView().getModel();
 
-			var aInputs = [
-					oController.byId("name"),
-                    oController.byId("lastName"),
-                    oController.byId("tel"),
-					oController.byId("province"),
-					oController.byId("city"),
-					oController.byId("street"),
-                    oController.byId("zip")
-                ],
-                
-			bValidationError = false;
+            var aInputs = oController._getInputs(),
+                bValidationError = false;
 
 			aInputs.forEach(function (oInput) {
 				bValidationError = oController._validateInput(oInput) || bValidationError;
@@ -64,6 +55,14 @@ sap.ui.define([
 			}
         },
 
+        onCancel: function(){
+            oController._getInputs().forEach(function (oInput) {
+                oInput.setValue(null);
+                oInput.setValueState("None");
+            });
+            oController.onNavBack();
+        },
+
 
         /*
             Private functions
@@ -82,10 +81,18 @@ sap.ui.define([
 			};
 		},
 
-        _cleanDOMValues: function (oInput){
-            oInput.setValue(null);
-			oInput.setValueState("None");
-        }
+        _getInputs: function(){
+            return [
+					oController.byId("name"),
+                    oController.byId("lastName"),
+                    oController.byId("tel"),
+					oController.byId("province"),
+					oController.byId("city"),
+					oController.byId("street"),
+                    oController.byId("zip")
+                ];
+        },
+
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
 		 * (NOT before the first rendering! onInit() is used for that one!).
