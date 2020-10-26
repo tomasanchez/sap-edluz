@@ -31,7 +31,7 @@ sap.ui.define([
         },
         
         navToReclamos: function(oEvent){
-            this.getRouter.navTo("complaint");
+            this.getRouter().navTo("complaint");
         },
 
         /*
