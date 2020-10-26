@@ -1,28 +1,10 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ns.HTML5Module.controller.NewTech" displayBlock="true">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ns.HTML5Module.controller.NewTech" displayBlock="true"><Page xmlns="sap.m" id="pageId" title="{i18n>newTechTitle}" floatingFooter="true" showNavButton="true" navButtonPress=".onNavBack">
 
-<Page xmlns="sap.m" id="pageId" title="{i18n>newTechTitle}" floatingFooter="true" showNavButton="true" navButtonPress=".onNavBack">
-
-    <headerContent>
-
-        <Button icon="sap-icon://add-contact" tooltip="Share" id="button3" type="Transparent" press=".onCreate"/>
+    <headerContent><Button icon="sap-icon://add-contact" tooltip="Share" id="button3" type="Transparent" press=".onCreate"/>
 
         
 
     </headerContent>
-
-    <footer>
-
-        <OverflowToolbar id="toolbar2">
-
-            <ToolbarSpacer/>
-
-            <Button type="Accept" text="Accept" press=".onCreate"/>
-
-            </OverflowToolbar>
-
-        
-
-    </footer>
 
     <content>
 
@@ -53,6 +35,12 @@
                 <Input xmlns="sap.m" id="zip" placeholder="ZIP" maxLength="10" type="Number" valueStateText="{i18n>zipValidate}"/></sap.ui.layout.form:content>
 
         </sap.ui.layout.form:SimpleForm>
+
+        <List >
+            <ActionListItem text="{i18n>create}" id="createButton" type="Active" press=".onCreate"/>
+
+            <ActionListItem type="Active" text="{i18n>cancel}" id="cancelButton" press=".onCancel"/>
+        </List>
 
     </content>
 
