@@ -1,0 +1,4 @@
+<mvc:View controllerName="ns.HTML5Module.controller.notFound" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml">
+<MessagePage title="{i18n>NotFound}" text="{i18n>NotFound.text}" description="{i18n>NotFound.description}" showNavButton="true"
+		navButtonPress=".onNavBack"/>
+</mvc:View>

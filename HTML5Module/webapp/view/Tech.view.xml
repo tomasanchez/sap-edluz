@@ -1,42 +1,43 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:semantic="sap.f.semantic" height="100%" controllerName="ns.HTML5Module.controller.App" displayBlock="true">
-
-<semantic:SemanticPage id="mySemanticPage" headerPinnable="true" toggleHeaderOnTitleClick="true" preserveHeaderStateOnScroll="false" titleAreaShrinkRatio="1:1.6:1.6" showFooter="true">
-
-    <!-- Title Heading-->
-    <semantic:titleHeading>
-        <Title text="{Tech>Lastname}, {Tech>Name}" id="title0"/>
-    </semantic:titleHeading>
-
-	<!-- Title Snapped On Mobile Content-->
-	<semantic:titleSnappedOnMobile>
-			<Title text="Header Title On Phone"/>
-	</semantic:titleSnappedOnMobile>
-
-	<!-- Title Content-->
-
-		<!-- Header Content -->
-		<semantic:headerContent>
-			<layout:HorizontalLayout allowWrapping="true">
-				<layout:VerticalLayout class="sapUiMediumMarginEnd">
-					<ObjectAttribute xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" title="Id" text="{Tech>Idtech}" cd:w5g.dt.context="/TecnicosSet" id="idtech"/>
-					<ObjectAttribute title="{i18n>name}" text="{Tech>Name} {Tech&gt;Lastname}"/>
-					<ObjectAttribute title="{i18n>tel}" text="{Tech>Tel}"/>
-				</layout:VerticalLayout>
-
-				<layout:VerticalLayout>
-					<ObjectAttribute title="{i18n>province}" text="{Tech>Province}"/>
-
-					<ObjectStatus text="{Tech>City}" state="{/objectDescription/status}" title="{i18n>city}"/>
-				</layout:VerticalLayout>
-			</layout:HorizontalLayout>
-		</semantic:headerContent>
-
-        <semantic:content>
-        <sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" editable="true" layout="ResponsiveGridLayout" id="form3" cd:w5g.dt.context="/TecnicosSet">
+<mvc:View xmlns:uxap="sap.uxap" xmlns:layout="sap.ui.layout" xmlns:f="sap.f" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ns.HTML5Module.controller.Tech" displayBlock="true">
+<Page showHeader="true" xmlns="sap.m" id="techPage" title="{i18n>titleTech}" floatingFooter="true" navButtonPress=".onNavBack" showNavButton="true">
+        <uxap:ObjectPageLayout>
+            <uxap:headerTitle>
+                <uxap:ObjectPageDynamicHeaderTitle >
+                    <uxap:expandedHeading>
+                        <Title id="_title1" text="Tech No. {Tech>Idtech}" wrapping="true"/>
+                    </uxap:expandedHeading>
+                    <uxap:snappedHeading>
+                        <FlexBox fitContainer="true" alignItems="Center">
+                            <f:Avatar src="sap-icon://employee" class="sapUiTinyMarginEnd" backgroundColor="Random"/>
+                            <Title id="_title2" text="{Tech>Lastname}, {Tech>Name} - Id: {Tech>Idtech}" wrapping="true"/>
+                        </FlexBox>
+                    </uxap:snappedHeading>
+                </uxap:ObjectPageDynamicHeaderTitle>
+            </uxap:headerTitle>
+            <uxap:headerContent>
+                <FlexBox width="100%" alignItems="Start" direction="Row" justifyContent="Start">
+                    <items>
+                        <FlexBox wrap="Wrap" width="700%" justifyContent="Start">
+                            <f:Avatar class="sapUiSmallMarginEnd" src="sap-icon://employee" displaySize="L" backgroundColor="Random" />
+                            <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                                <ObjectStatus id="_name" title="{i18n>Name}" text="{Tech>Name} {Tech>Lastname}"/>
+                                <ObjectStatus id="_address" title="{i18n>Address}" text="{Tech>Street}, {Tech>City}, {Tech>Province}"/>
+                                <ObjectStatus id="_phone" title="{i18n>Phone}" text="{Tech>Tel}"/>
+                            </layout:VerticalLayout>
+                        </FlexBox>
+                    </items>
+                </FlexBox>
+            </uxap:headerContent>
+            <uxap:sections>
+                <uxap:ObjectPageSection title="{i18n>Detail}">
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection >
+                            <uxap:blocks>
+                                <sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" editable="true" layout="ResponsiveGridLayout" id="form3" cd:w5g.dt.context="/TecnicosSet">
 
             <sap.ui.layout.form:content>
 
-                <sap.ui.core:Title text="Personal Data" id="title8" emphasized="true" icon="sap-icon://employee"/>
+                <sap.ui.core:Title text="{i18n>personalData}" id="title8" emphasized="true"/>
 
                 <Label text="{i18n>name}/{i18n&gt;lastName}" id="label2"/>
 
@@ -59,26 +60,11 @@
                 <Input xmlns="sap.m" id="zip" placeholder="ZIP" maxLength="10" type="Number" valueStateText="{i18n>zipValidate}" editable="false" value="{Tech>Zip}"/></sap.ui.layout.form:content>
 
             </sap.ui.layout.form:SimpleForm>
-        </semantic:content>
-
-    <semantic:deleteAction>
-
-        <semantic:DeleteAction id="delete"/>
-
-    </semantic:deleteAction>
-
-    <semantic:titleMainAction>
-
-        <semantic:TitleMainAction text="Assign" id="assign"/>
-
-    </semantic:titleMainAction>
-
-    <semantic:fullScreenAction>
-
-        <semantic:FullScreenAction tooltip="Full Screen" id="action2"/>
-
-    </semantic:fullScreenAction>
-
-    </semantic:SemanticPage>
-
+                            </uxap:blocks>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                </uxap:ObjectPageSection>
+            </uxap:sections>
+        </uxap:ObjectPageLayout>
+    </Page>
 </mvc:View>

@@ -3,7 +3,7 @@
 <content>
 <List noDataText="No data" id="list0" growing="true" items="{path:'/TecnicosSet',filters:[{path:'Province',operator:'StartsWith',value1:''},{path:'City',operator:'StartsWith',value1:''}],sorter:[{path:'Idtech',descending:false}]}" sticky="HeaderToolbar" headerText="Technicians" showUnread="true">
 <items>
-<FeedListItem icon="sap-icon://inventory" sender="{Lastname}, {Name}" text="In {City}, {Province}" info="Waiting for Assignment" type="Navigation"/>
+<FeedListItem icon="sap-icon://inventory" sender="{Lastname}, {Name}" text="In {City}, {Province}" info="Waiting for Assignment" type="Navigation" press=".onListItemPressed"/>
 </items>
 </List>
 </content>

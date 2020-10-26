@@ -94,7 +94,10 @@
         "viewPath": "ns.HTML5Module.view",
         "controlAggregation": "pages",
         "controlId": "app",
-        "clearControlAggregation": false
+        "clearControlAggregation": false,
+        "bypassed": {
+			"target": "notFound"
+		}
       },
       "routes": [
         {
@@ -111,7 +114,7 @@
         },        
         {
             "name": "tech",
-            "pattern": "techs/byid",
+            "pattern": "techs/{Idtech}",
 			"target": "Tech"
         },
         {
@@ -136,6 +139,11 @@
           "viewName": "Home",
           "viewLevel": 0
         },
+		"notFound": {
+			"viewType": "XML",
+			"viewName": "notFound",
+			"transition": "show"
+		},
         "Techs":{
             "viewType": "XML",
             "viewName": "Techs",
@@ -144,7 +152,7 @@
         "Tech":{
             "viewType": "XML",
             "viewName": "Tech",
-            "viewLevel": 3
+            "viewLevel": 2
         },
         "NewTech":{
             "viewType": "XML",
