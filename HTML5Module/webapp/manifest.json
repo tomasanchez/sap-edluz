@@ -113,7 +113,12 @@
             "name": "newTech",
             "pattern": "techs/new",
 			"target": "NewTech"
-		}
+        },
+        {
+            "name": "complaint",
+            "pattern": "complaint",
+            "target": "Reclamos"
+        }
       ],
       "targets": {
         "Home": {
@@ -130,6 +135,11 @@
             "viewType": "XML",
             "viewName": "NewTech",
             "viewLevel": 2
+        },
+        "Reclamos":{
+            "viewType": "XML",
+            "viewName": "Reclamos",
+            "viewLevel": 1
         }
       }
     }
