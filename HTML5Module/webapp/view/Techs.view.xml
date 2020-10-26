@@ -1,16 +1,14 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ns.HTML5Module.controller.Techs" displayBlock="true">
-<Page xmlns="sap.m" id="pageId" title="Page Title" floatingFooter="true" navButtonPress=".onNavBack" showNavButton="true">
-    <content>
-        
-       <List noDataText="No data" id="list0" growing="true" items="{path:'/TecnicosSet',filters:[{path:'Province',operator:'StartsWith',value1:''},{path:'City',operator:'StartsWith',value1:''}],sorter:[{path:'Idtech',descending:false}]}" sticky="HeaderToolbar" headerText="Technicians" showUnread="true">
-        <items>
-            <FeedListItem icon="sap-icon://inventory" sender="{Lastname}, {Name}" text="In {City}, {Province}" info="Waiting for Assignment" type="Navigation"/>
-        </items>
-        </List>
-        
-    </content>
-    <headerContent>
-        <Button xmlns="sap.m" text="New Technician" id="button0" icon="sap-icon://add-employee" press=".navToNewTech"/>
-    </headerContent>
-    </Page>
+<mvc:View controllerName="ns.HTML5Module.controller.Techs" displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+<Page id="pageId" title="Page Title" floatingFooter="true" navButtonPress=".onNavBack" showNavButton="true" xmlns="sap.m">
+<content>
+<List noDataText="No data" id="list0" growing="true" items="{path:'/TecnicosSet',filters:[{path:'Province',operator:'StartsWith',value1:''},{path:'City',operator:'StartsWith',value1:''}],sorter:[{path:'Idtech',descending:false}]}" sticky="HeaderToolbar" headerText="Technicians" showUnread="true">
+<items>
+<FeedListItem icon="sap-icon://inventory" sender="{Lastname}, {Name}" text="In {City}, {Province}" info="Waiting for Assignment" type="Navigation"/>
+</items>
+</List>
+</content>
+<headerContent>
+<Button text="New Technician" id="button0" icon="sap-icon://add-employee" press=".navToNewTech" xmlns="sap.m"/>
+</headerContent>
+</Page>
 </mvc:View>
