@@ -108,7 +108,12 @@
             "name": "techsList",
             "pattern": "techs",
 			"target": "Techs"
-		},
+        },        
+        {
+            "name": "tech",
+            "pattern": "techs/byid",
+			"target": "Tech"
+        },
         {
             "name": "newTech",
             "pattern": "techs/new",
@@ -130,6 +135,11 @@
             "viewType": "XML",
             "viewName": "Techs",
             "viewLevel": 1
+        },
+        "Tech":{
+            "viewType": "XML",
+            "viewName": "Tech",
+            "viewLevel": 3
         },
         "NewTech":{
             "viewType": "XML",

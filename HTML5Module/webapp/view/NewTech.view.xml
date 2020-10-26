@@ -1,9 +1,6 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ns.HTML5Module.controller.NewTech" displayBlock="true"><Page xmlns="sap.m" id="pageId" title="{i18n>newTechTitle}" floatingFooter="true" showNavButton="true" navButtonPress=".onNavBack">
 
-    <headerContent><Button icon="sap-icon://add-contact" tooltip="Share" id="button3" type="Transparent" press=".onCreate"/>
-
-        
-
+    <headerContent><Button icon="sap-icon://add-contact" tooltip="Create" id="button3" type="Transparent" press=".onCreate"/>
     </headerContent>
 
     <content>
@@ -24,13 +21,13 @@
 
                 <Input width="100%" id="tel" placeholder="1123906798" maxLength="10" type="Tel" valueStateText="{i18n>tel}"/>
 
-                <Label text="{i18n>province}/{i18n&gt;street}/{i18n>zip}" width="100%" id="label4"/>
+                <Label text="{i18n>province}/{i18n>city}/{i18n&gt;street}/{i18n>zip}" width="100%" id="label4"/>
 
                 <Input xmlns="sap.m" id="province" placeholder="Code Province ex. BA" maxLength="3" valueStateText="{i18n>textValidate}"/>
 
                 <Input xmlns="sap.m" id="city" placeholder="City" maxLength="15" valueStateText="{i18n>textValidate}"/>
 
-                <Input xmlns="sap.m" id="street" placeholder="Street" maxLength="15" valueStateText="{i18n>textValidate}"/>
+                <Input xmlns="sap.m" id="street" placeholder="Street" maxLength="30" valueStateText="{i18n>textValidate}"/>
 
                 <Input xmlns="sap.m" id="zip" placeholder="ZIP" maxLength="10" type="Number" valueStateText="{i18n>zipValidate}"/></sap.ui.layout.form:content>
 

@@ -40,12 +40,13 @@ sap.ui.define([
                 
 				oModel.create("/TecnicosSet", oEntity, {
 					success: function (resultado) {
-						MessageToast.show("Success: New Client Created");
+						MessageToast.show("Success: New Technician Created");
 						this.getView().setBusy(false);
                         aInputs.forEach(function (oInput) {
                             oInput.setValue(null);
                             oInput.setValueState("None");
                         });
+                        this.navToTechs();
 					}.bind(this),
 					error: function (error) {
 						MessageToast.show("Error: Something went wrong");
@@ -64,6 +65,10 @@ sap.ui.define([
                 oInput.setValue(null);
                 oInput.setValueState("None");
             });
+
+            var number = 1100000000 + Math.floor(Math.random()*99999999);
+            oController.byId("tel").setValue(number);
+
             oController.onNavBack();
         },
 

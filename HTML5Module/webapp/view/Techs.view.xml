@@ -1,5 +1,5 @@
 <mvc:View controllerName="ns.HTML5Module.controller.Techs" displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
-<Page id="pageId" title="Page Title" floatingFooter="true" navButtonPress=".onNavBack" showNavButton="true" xmlns="sap.m">
+<Page id="pageId" title="Technicians List" floatingFooter="true" navButtonPress=".onNavBack" showNavButton="true" xmlns="sap.m">
 <content>
 <List noDataText="No data" id="list0" growing="true" items="{path:'/TecnicosSet',filters:[{path:'Province',operator:'StartsWith',value1:''},{path:'City',operator:'StartsWith',value1:''}],sorter:[{path:'Idtech',descending:false}]}" sticky="HeaderToolbar" headerText="Technicians" showUnread="true">
 <items>

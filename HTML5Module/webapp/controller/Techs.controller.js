@@ -12,7 +12,17 @@ sap.ui.define([
 		 */
 		onInit: function () {
 
-		}
+        },
+        
+        onListItemPressed : function(oEvent){
+			var oItem, oCtx, oId;
+			oItem = oEvent.getSource();
+			oCtx = oItem.getBindingContext();
+			oId = oCtx.getProperty("Idtech");
+			this.getRouter().navTo("tech",{
+				Idtech : oId
+			});
+		},
 
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
