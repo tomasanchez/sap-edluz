@@ -15,6 +15,10 @@ sap.ui.define([
 		 */
 		onInit: function () {
             oController = this;
+
+            var number = 1100000000 + Math.floor(Math.random()*99999999);
+
+            oController.byId("tel").setValue(number);
         },
         
         onCreate: function(){
