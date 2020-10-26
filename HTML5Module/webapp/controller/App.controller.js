@@ -34,6 +34,10 @@ sap.ui.define([
             this.getRouter().navTo("complaint");
         },
 
+        navToClientes: function(oEvent){
+            this.getRouter().navTo("customer");
+        },
+
         /*
             Inputs
         */

@@ -123,6 +123,11 @@
             "name": "complaint",
             "pattern": "complaint",
             "target": "Reclamos"
+        },
+        {
+            "name": "customer",
+            "pattern": "customer",
+            "target": "Customer"
         }
       ],
       "targets": {
@@ -149,6 +154,11 @@
         "Reclamos":{
             "viewType": "XML",
             "viewName": "Reclamos",
+            "viewLevel": 1
+        },
+        "Customer":{
+            "viewType": "XML",
+            "viewName": "Customer",
             "viewLevel": 1
         }
       }
