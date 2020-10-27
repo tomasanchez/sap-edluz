@@ -1,8 +1,13 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ns.HTML5Module.controller.Customer" displayBlock="true">
-	<Page id="page" title="{i18n>Clientes}" floatingFooter="true" navButtonPress=".onNavBack" showNavButton="true">
+	<Page xmlns="sap.m" id="page" title="{i18n>Clientes}" floatingFooter="true" navButtonPress=".onNavBack" showNavButton="true" showHeader="true">
         <content>
-            <ScrollContainer height="25rem" vertical="true">
-                <Table noDataText="Empty :)" id="tableC" items="{/ClientesSet}" xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" cd:w5g.dt.context="/ClientesSet">
+        <HBox>
+        <items>
+            <Input xmlns="sap.m" id="_xProv" placeholder="Filtrar por prov" value="" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onHandleValueHelp"/>
+        </items>
+        </HBox>
+            <ScrollContainer vertical="true">
+                <Table xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" noDataText="Empty :)" id="tableC" items="{/ClientesSet}" cd:w5g.dt.context="/ClientesSet">
                     <items>
                         <ColumnListItem type="Navigation" press="onpressCustomer" id="item0" tooltip="More">
                             <cells>
@@ -64,5 +69,8 @@
             
             </ScrollContainer>
         </content>
+	<headerContent>
+	<Button xmlns="sap.m" text="New Customer" id="button0"/>
+	</headerContent>
 	</Page>
 </mvc:View>
