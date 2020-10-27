@@ -95,8 +95,6 @@ sap.ui.define([
             /* Snapped Header */
             oSnappedHeader.setText(oTech.Lastname + ", " + oTech.Name + " - No. #" + oTech.Idtech);
 
-
-
         },
 
         _setForm: function(oTech){
@@ -107,6 +105,12 @@ sap.ui.define([
             oController.byId("city").setValue(oTech.City);
             oController.byId("zip").setValue(oTech.Zip);
             oController.byId("province").setValue(oTech.Province);
+        },
+        _getComplaints: function(){
+
+        },
+        _getMetrics: function(){
+            
         }
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered

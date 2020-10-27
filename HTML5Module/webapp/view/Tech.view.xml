@@ -1,8 +1,8 @@
 <mvc:View xmlns:uxap="sap.uxap" xmlns:layout="sap.ui.layout" xmlns:f="sap.f" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ns.HTML5Module.controller.Tech" displayBlock="true">
-<Page showHeader="true" xmlns="sap.m" id="techPage" title="{i18n>titleTech}" floatingFooter="true" navButtonPress=".onNavBack" showNavButton="true">
+<Page xmlns="sap.m" showHeader="true" id="techPage" title="{i18n>titleTech}" floatingFooter="true" navButtonPress=".onNavBack" showNavButton="true">
         <uxap:ObjectPageLayout>
             <uxap:headerTitle>
-                <uxap:ObjectPageDynamicHeaderTitle >
+                <uxap:ObjectPageDynamicHeaderTitle>
                     <uxap:expandedHeading>
                         <Title id="_eHeader" text="Tech No. #" wrapping="true"/>
                     </uxap:expandedHeading>
@@ -18,9 +18,9 @@
                 <FlexBox width="100%" alignItems="Start" direction="Row" justifyContent="Start">
                     <items>
                         <FlexBox wrap="Wrap" width="700%" justifyContent="Start">
-                            <f:Avatar class="sapUiSmallMarginEnd" src="sap-icon://employee" displaySize="L" backgroundColor="Random" />
+                            <f:Avatar class="sapUiSmallMarginEnd" src="sap-icon://employee" displaySize="L" backgroundColor="Random"/>
                             <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
-                                <ObjectStatus id="_name" title="{i18n>name}" text="{Tech>Name} {Tech>Lastname}"/>
+                                <ObjectStatus id="_name" title="{i18n>name}" text="{Tech>Name} {Tech&gt;Lastname}"/>
                                 <ObjectStatus id="_address" title="{i18n>address}" text="{Tech>Street}, {Tech>City}, {Tech>Province}"/>
                                 <ObjectStatus id="_phone" title="{i18n>tel}" text="{Tech>Tel}"/>
                             </layout:VerticalLayout>
@@ -31,39 +31,56 @@
             <uxap:sections>
                 <uxap:ObjectPageSection title="{i18n>details}">
                     <uxap:subSections>
-                        <uxap:ObjectPageSubSection >
+                        <uxap:ObjectPageSubSection>
                             <uxap:blocks>
                                 <sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" editable="true" layout="ResponsiveGridLayout" id="form3" cd:w5g.dt.context="/TecnicosSet">
+                                    <sap.ui.layout.form:content>
+                                        <sap.ui.core:Title text="{i18n>personalData}" id="title8" emphasized="true"/>
 
-            <sap.ui.layout.form:content >
+                                        <Label text="{i18n>name}/{i18n&gt;lastName}" id="label2"/>
 
-                <sap.ui.core:Title text="{i18n>personalData}" id="title8" emphasized="true"/>
+                                        <Input width="100%" id="name" placeholder="Name" maxLength="15" autocomplete="false" valueStateText="{i18n>textValidate}" value="{Tech>Name}" editable="false"/>
 
-                <Label text="{i18n>name}/{i18n&gt;lastName}" id="label2"/>
+                                        <Input width="100%" id="lastname" placeholder="Last Name" maxLength="15" valueStateText="{i18n>textValidate}" value="{Tech>Lastname}" editable="false"/>
 
-                <Input width="100%" id="name" placeholder="Name" maxLength="15" autocomplete="false" valueStateText="{i18n>textValidate}" value="{Tech>Name}" editable="false"/>
+                                        <Label text="{i18n>tel}" id="label3"/>
 
-                <Input width="100%" id="lastname" placeholder="Last Name" maxLength="15" valueStateText="{i18n>textValidate}" value="{Tech>Lastname}" editable="false"/>
+                                        <Input width="100%" id="tel" placeholder="1123906798" maxLength="10" type="Tel" valueStateText="{i18n>tel}" value="{Tech>Tel}" editable="false"/>
 
-                <Label text="{i18n>tel}" id="label3"/>
+                                        <Label text="{i18n>province}/{i18n&gt;city}/{i18n>street}/{i18n&gt;zip}" width="100%" id="label4"/>
 
-                <Input width="100%" id="tel" placeholder="1123906798" maxLength="10" type="Tel" valueStateText="{i18n>tel}" value="{Tech>Tel}" editable="false"/>
+                                        <Input xmlns="sap.m" id="province" placeholder="Code Province ex. BA" maxLength="3" valueStateText="{i18n>textValidate}" value="{Tech>Province}" editable="false"/>
 
-                <Label text="{i18n>province}/{i18n&gt;city}/{i18n>street}/{i18n&gt;zip}" width="100%" id="label4"/>
+                                        <Input xmlns="sap.m" id="city" placeholder="City" maxLength="15" valueStateText="{i18n>textValidate}" autocomplete="false" value="{Tech>City}" editable="false"/>
 
-                <Input xmlns="sap.m" id="province" placeholder="Code Province ex. BA" maxLength="3" valueStateText="{i18n>textValidate}" value="{Tech>Province}" editable="false"/>
+                                        <Input xmlns="sap.m" id="street" placeholder="Street" maxLength="30" valueStateText="{i18n>textValidate}" value="{Tech>Street}" editable="false"/>
 
-                <Input xmlns="sap.m" id="city" placeholder="City" maxLength="15" valueStateText="{i18n>textValidate}" autocomplete="false" value="{Tech>City}" editable="false"/>
-
-                <Input xmlns="sap.m" id="street" placeholder="Street" maxLength="30" valueStateText="{i18n>textValidate}" value="{Tech>Street}" editable="false"/>
-
-                <Input xmlns="sap.m" id="zip" placeholder="ZIP" maxLength="10" type="Number" valueStateText="{i18n>zipValidate}" editable="false" value="{Tech>Zip}"/></sap.ui.layout.form:content>
-
-            </sap.ui.layout.form:SimpleForm>
+                                        <Input xmlns="sap.m" id="zip" placeholder="ZIP" maxLength="10" type="Number" valueStateText="{i18n>zipValidate}" editable="false" value="{Tech>Zip}"/>
+                                        </sap.ui.layout.form:content>
+                                    </sap.ui.layout.form:SimpleForm>
                             </uxap:blocks>
                         </uxap:ObjectPageSubSection>
                     </uxap:subSections>
                 </uxap:ObjectPageSection>
+                <uxap:ObjectPageSection title="{i18n>techSupport}">
+                    <uxap:ObjectPageSubSection>
+                        <uxap:blocks>
+                        <List headerText="{i18n>claimsHandled}" items="{Complaints>/}" noDataText="{i18n>noComplaints}">
+                            <DisplayListItem label="{Complaints>Idcomplaint/}" value="{Complaints>Dateclosed/}"/>
+                        </List>
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:ObjectPageSection>
+                <uxap:ObjectPageSection title="{i18n>assignments}">
+                    <uxap:ObjectPageSubSection>
+                        <uxap:blocks>
+                        <List headerText="{i18n>readings}" items="{Metrics>/}" noDataText="{i18n>noComplaints}">
+                            <DisplayListItem label="{Complaints>Idcomplaint/}" value="{Complaints>Dateclosed/}"/>
+                        </List>
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:ObjectPageSection>
+
             </uxap:sections>
         </uxap:ObjectPageLayout>
     </Page>
