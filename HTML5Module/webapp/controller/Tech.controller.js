@@ -6,7 +6,8 @@ sap.ui.define([
 	function (AppController, MessageToast, MessageBox) {
 		"use strict";
 	    var oController;
-	    var oPreviousData;
+        var oPreviousData;
+        var aInputs = [];
 		return AppController.extend("ns.HTML5Module.controller.Tech", {
             /**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
@@ -18,7 +19,6 @@ sap.ui.define([
 			oController = this;
 			var oRouter = this.getRouter();
 			oRouter.getRoute("tech").attachMatched(this._onRouteMatched, this);
-            
         },
 
         /*
@@ -78,9 +78,35 @@ sap.ui.define([
         },
         loadTech:function(result){
 
-            var modelJSON = new sap.ui.model.json.JSONModel(result);
-            this.byId("techPage").setModel(modelJSON, "Tech");
-            debugger;
+            oController._setHeader(result);
+            oController._setForm(result);
+        },
+        _setHeader:function(oTech){
+            var oExtendedHeader = oController.byId("_eHeader"),
+                oSnappedHeader = oController.byId("_sHeader");
+            
+            /* Extended Header */
+            oExtendedHeader.setText("Tech No. #" + oTech.Idtech);
+                 /* Object Status - Header */
+            oController.byId("_name").setText(oTech.Name + " " + oTech.Lastname);
+            oController.byId("_address").setText(oTech.Street + ", " + oTech.City + ", " + oTech.Province);
+            oController.byId("_phone").setText(oTech.Tel);
+
+            /* Snapped Header */
+            oSnappedHeader.setText(oTech.Lastname + ", " + oTech.Name + " - No. #" + oTech.Idtech);
+
+
+
+        },
+
+        _setForm: function(oTech){
+            oController.byId("name").setValue(oTech.Name);
+            oController.byId("lastname").setValue(oTech.Lastname);
+            oController.byId("tel").setValue(oTech.Tel);
+            oController.byId("street").setValue(oTech.Street);
+            oController.byId("city").setValue(oTech.City);
+            oController.byId("zip").setValue(oTech.Zip);
+            oController.byId("province").setValue(oTech.Province);
         }
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered

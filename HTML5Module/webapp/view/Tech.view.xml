@@ -4,12 +4,12 @@
             <uxap:headerTitle>
                 <uxap:ObjectPageDynamicHeaderTitle >
                     <uxap:expandedHeading>
-                        <Title id="_title1" text="Tech No. {Tech>Idtech}" wrapping="true"/>
+                        <Title id="_eHeader" text="Tech No. #" wrapping="true"/>
                     </uxap:expandedHeading>
                     <uxap:snappedHeading>
                         <FlexBox fitContainer="true" alignItems="Center">
                             <f:Avatar src="sap-icon://employee" class="sapUiTinyMarginEnd" backgroundColor="Random"/>
-                            <Title id="_title2" text="{Tech>Lastname}, {Tech>Name} - Id: {Tech>Idtech}" wrapping="true"/>
+                            <Title id="_sHeader" text="Tech Lastname, Name - #ID" wrapping="true"/>
                         </FlexBox>
                     </uxap:snappedHeading>
                 </uxap:ObjectPageDynamicHeaderTitle>
@@ -20,22 +20,22 @@
                         <FlexBox wrap="Wrap" width="700%" justifyContent="Start">
                             <f:Avatar class="sapUiSmallMarginEnd" src="sap-icon://employee" displaySize="L" backgroundColor="Random" />
                             <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
-                                <ObjectStatus id="_name" title="{i18n>Name}" text="{Tech>Name} {Tech>Lastname}"/>
-                                <ObjectStatus id="_address" title="{i18n>Address}" text="{Tech>Street}, {Tech>City}, {Tech>Province}"/>
-                                <ObjectStatus id="_phone" title="{i18n>Phone}" text="{Tech>Tel}"/>
+                                <ObjectStatus id="_name" title="{i18n>name}" text="{Tech>Name} {Tech>Lastname}"/>
+                                <ObjectStatus id="_address" title="{i18n>address}" text="{Tech>Street}, {Tech>City}, {Tech>Province}"/>
+                                <ObjectStatus id="_phone" title="{i18n>tel}" text="{Tech>Tel}"/>
                             </layout:VerticalLayout>
                         </FlexBox>
                     </items>
                 </FlexBox>
             </uxap:headerContent>
             <uxap:sections>
-                <uxap:ObjectPageSection title="{i18n>Detail}">
+                <uxap:ObjectPageSection title="{i18n>details}">
                     <uxap:subSections>
                         <uxap:ObjectPageSubSection >
                             <uxap:blocks>
                                 <sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" editable="true" layout="ResponsiveGridLayout" id="form3" cd:w5g.dt.context="/TecnicosSet">
 
-            <sap.ui.layout.form:content>
+            <sap.ui.layout.form:content >
 
                 <sap.ui.core:Title text="{i18n>personalData}" id="title8" emphasized="true"/>
 
@@ -43,7 +43,7 @@
 
                 <Input width="100%" id="name" placeholder="Name" maxLength="15" autocomplete="false" valueStateText="{i18n>textValidate}" value="{Tech>Name}" editable="false"/>
 
-                <Input width="100%" id="lastName" placeholder="Last Name" maxLength="15" valueStateText="{i18n>textValidate}" value="{Tech>Lastname}" editable="false"/>
+                <Input width="100%" id="lastname" placeholder="Last Name" maxLength="15" valueStateText="{i18n>textValidate}" value="{Tech>Lastname}" editable="false"/>
 
                 <Label text="{i18n>tel}" id="label3"/>
 

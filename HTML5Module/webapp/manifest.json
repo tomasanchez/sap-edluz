@@ -119,7 +119,7 @@
         },
         {
             "name": "newTech",
-            "pattern": "techs/new",
+            "pattern": "new",
 			"target": "NewTech"
         },
         {
