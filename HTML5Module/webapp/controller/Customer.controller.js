@@ -1,8 +1,7 @@
 sap.ui.define([
-    "ns/HTML5Module/controller/App.controller",
-    "sap/m/MessageToast"
+    "ns/HTML5Module/controller/App.controller"
 	],
-	function (AppController, MessageToast) {
+	function (AppController) {
         "use strict";
         //var oController;
 
@@ -10,38 +9,38 @@ sap.ui.define([
         
 		onInit: function () {
 
-        //     oController = this;
+        // //     oController = this;
 
-        // },
+        // // },
 
-        // refreshTable: function(oEvent){
-        //     this.refresh();
-        // },
+        // // refreshTable: function(oEvent){
+        // //     this.refresh();
+        // // },
 
-        // refresh: function() {
+        // // refresh: function() {
 
-        //     var oModel = this.getView().getModel();
+        // //     var oModel = this.getView().getModel();
 
-        //     oModel.read("/ClientesSet", {
-        //         success: function (resultado){
-        //             MessageToast.show("Exito");
-        //             this.loadModel(resultado.results);
-        //         }.bind(this),
-        //         error: function (error) {
-        //             MessageToast.show("Error");
-        //         }
-        //     });
-        // },
+        // //     oModel.read("/ClientesSet", {
+        // //         success: function (resultado){
+        // //             MessageToast.show("Exito");
+        // //             this.loadModel(resultado.results);
+        // //         }.bind(this),
+        // //         error: function (error) {
+        // //             MessageToast.show("Error");
+        // //         }
+        // //     });
+        // // },
 
-        // loadModel: function (arrayResultado) {
-        //     var nuevoResultado = [];
-        //     arrayResultado.forEach(function (item) {
-        //         nuevoResultado.push(item);
-        //     }.bind(this));
+        // // loadModel: function (arrayResultado) {
+        // //     var nuevoResultado = [];
+        // //     arrayResultado.forEach(function (item) {
+        // //         nuevoResultado.push(item);
+        // //     }.bind(this));
 
-        //     var modeloJSON = new sap.ui.model.json.JSONModel(nuevoResultado);
+        //    var modeloJSON = new sap.ui.model.json.JSONModel(nuevoResultado);
         //     oController.getView().setModel(modeloJSON, "/ClientesSet");
-        // }
+         }
 
         
 
