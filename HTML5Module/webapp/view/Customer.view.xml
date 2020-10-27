@@ -1,5 +1,5 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ns.HTML5Module.controller.Customer" displayBlock="true">
-	<Page id="page" title="Customers" floatingFooter="true" navButtonPress=".onNavBack" showNavButton="true">
-	
+	<Page id="page" title="{i18n>Clientes}" floatingFooter="true" navButtonPress=".onNavBack" showNavButton="true">
+        
 	</Page>
 </mvc:View>
