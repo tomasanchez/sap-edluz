@@ -1,43 +1,50 @@
 sap.ui.define([
-    "ns/HTML5Module/controller/App.controller"
+    "ns/HTML5Module/controller/App.controller",
+    "sap/m/MessageToast"
 	],
-	function (AppController) {
-		"use strict";
+	function (AppController, MessageToast) {
+        "use strict";
+        //var oController;
 
 		return AppController.extend("ns.HTML5Module.controller.Customer", {
-            /**
-		 * Called when a controller is instantiated and its View controls (if available) are already created.
-		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
-		 * @memberOf tosa8.my_gym.view.App
-		 */
+        
 		onInit: function () {
 
-		}
+        //     oController = this;
 
-		/**
-		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
-		 * (NOT before the first rendering! onInit() is used for that one!).
-		 * @memberOf tosa8.my_gym.view.App
-		 */
-		//	onBeforeRendering: function() {
-		//
-		//	},
+        // },
 
-		/**
-		 * Called when the View has been rendered (so its HTML is part of the document). Post-rendering manipulations of the HTML could be done here.
-		 * This hook is the same one that SAPUI5 controls get after being rendered.
-		 * @memberOf tosa8.my_gym.view.App
-		 */
-		//	onAfterRendering: function() {
-		//
-		//	},
+        // refreshTable: function(oEvent){
+        //     this.refresh();
+        // },
 
-		/**
-		 * Called when the Controller is destroyed. Use this one to free resources and finalize activities.
-		 * @memberOf tosa8.my_gym.view.App
-		 */
-		//	onExit: function() {
-		//
-		//	}
+        // refresh: function() {
+
+        //     var oModel = this.getView().getModel();
+
+        //     oModel.read("/ClientesSet", {
+        //         success: function (resultado){
+        //             MessageToast.show("Exito");
+        //             this.loadModel(resultado.results);
+        //         }.bind(this),
+        //         error: function (error) {
+        //             MessageToast.show("Error");
+        //         }
+        //     });
+        // },
+
+        // loadModel: function (arrayResultado) {
+        //     var nuevoResultado = [];
+        //     arrayResultado.forEach(function (item) {
+        //         nuevoResultado.push(item);
+        //     }.bind(this));
+
+        //     var modeloJSON = new sap.ui.model.json.JSONModel(nuevoResultado);
+        //     oController.getView().setModel(modeloJSON, "/ClientesSet");
+        // }
+
+        
+
+		
 		});
     });
