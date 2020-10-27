@@ -1,5 +1,68 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ns.HTML5Module.controller.Customer" displayBlock="true">
 	<Page id="page" title="{i18n>Clientes}" floatingFooter="true" navButtonPress=".onNavBack" showNavButton="true">
-        
+        <content>
+            <ScrollContainer height="25rem" vertical="true">
+                <Table noDataText="Empty :)" id="tableC" items="{/ClientesSet}" xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" cd:w5g.dt.context="/ClientesSet">
+                    <items>
+                        <ColumnListItem type="Navigation" press="onpressCustomer" id="item0" tooltip="More">
+                            <cells>
+                                <ObjectIdentifier text="{idcustomer}"/>
+                                <ObjectAttribute text="{name}"/>
+                                <ObjectAttribute text="{lastname}"/>
+                                <ObjectAttribute text="{province}"/>
+                                <ObjectAttribute text="{city}"/>
+                                <ObjectAttribute text="{street}"/>
+                                <ObjectAttribute text="{zip}"/>
+                                <ObjectAttribute text="{tel}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                    <columns>
+                        <Column>
+                            <header>
+                                <Text text="{i18n>colId}"/>
+                            </header>
+                        </Column>
+                        <Column>
+                            <header>
+                                <Text text="{i18n>name}"/>
+                            </header>
+                        </Column>
+                        <Column>
+                            <header>
+                                <Text text="{i18n>lastname}"/>
+                            </header>
+                        </Column>
+                        <Column>
+                            <header>
+                                <Text text="{i18n>province}"/>
+                            </header>
+                        </Column>
+                        <Column>
+                            <header>
+                                <Text text="{i18n>city}"/>
+                            </header>
+                        </Column>
+                        <Column>
+                            <header>
+                                <Text text="{i18n>street}"/>
+                            </header>
+                        </Column>
+                        <Column>
+                            <header>
+                                <Text text="{i18n>zip}"/>
+                            </header>
+                        </Column>
+                        <Column>
+                            <header>
+                                <Text text="{i18n>tel}"/>
+                            </header>
+                        </Column>
+                    </columns>
+                
+                </Table>
+            
+            </ScrollContainer>
+        </content>
 	</Page>
 </mvc:View>
