@@ -4,7 +4,7 @@
             <uxap:headerTitle>
                 <uxap:ObjectPageDynamicHeaderTitle >
                     <uxap:expandedHeading>
-                        <Title id="_title1" text="N° customer" wrapping="true"/>
+                        <Title id="_title1" text="" wrapping="true"/>
                     </uxap:expandedHeading>
                     <uxap:snappedHeading>
                         <FlexBox fitContainer="true" alignItems="Center">

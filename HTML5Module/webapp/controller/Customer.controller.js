@@ -9,39 +9,18 @@ sap.ui.define([
         
 		onInit: function () {
 
-        // //     oController = this;
+        
+         },
 
-        // // },
-
-        // // refreshTable: function(oEvent){
-        // //     this.refresh();
-        // // },
-
-        // // refresh: function() {
-
-        // //     var oModel = this.getView().getModel();
-
-        // //     oModel.read("/ClientesSet", {
-        // //         success: function (resultado){
-        // //             MessageToast.show("Exito");
-        // //             this.loadModel(resultado.results);
-        // //         }.bind(this),
-        // //         error: function (error) {
-        // //             MessageToast.show("Error");
-        // //         }
-        // //     });
-        // // },
-
-        // // loadModel: function (arrayResultado) {
-        // //     var nuevoResultado = [];
-        // //     arrayResultado.forEach(function (item) {
-        // //         nuevoResultado.push(item);
-        // //     }.bind(this));
-
-        //    var modeloJSON = new sap.ui.model.json.JSONModel(nuevoResultado);
-        //     oController.getView().setModel(modeloJSON, "/ClientesSet");
-         }
-
+         onListItemPressed : function(oEvent){
+			var oItem, oCtx, oId;
+			oItem = oEvent.getSource();
+			oCtx = oItem.getBindingContext();
+			oId = oCtx.getProperty("Idcustomer");
+			this.getRouter().navTo("complaint",{
+				Idcustomer : oId
+			});
+        }
         
 
 		

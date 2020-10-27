@@ -3,7 +3,7 @@ sap.ui.define([
 	],
 	function (AppController) {
 		"use strict";
-
+//        var oController;
 		return AppController.extend("ns.HTML5Module.controller.Home", {
             /**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
@@ -12,32 +12,55 @@ sap.ui.define([
 		 */
 		onInit: function () {
 
-		}
+        //    oController = this;
+        //    oController.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+        //    oController.oRouter.attachRouteMatched(oController._onRouteMatched, oController);
+            
+        }/*,
 
-		/**
-		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
-		 * (NOT before the first rendering! onInit() is used for that one!).
-		 * @memberOf tosa8.my_gym.view.App
-		 */
-		//	onBeforeRendering: function() {
-		//
-		//	},
+        _onRouteMatched: function (oEvent) {
 
-		/**
-		 * Called when the View has been rendered (so its HTML is part of the document). Post-rendering manipulations of the HTML could be done here.
-		 * This hook is the same one that SAPUI5 controls get after being rendered.
-		 * @memberOf tosa8.my_gym.view.App
-		 */
-		//	onAfterRendering: function() {
-		//
-		//	},
+            var nCustomer = oEvent.getParameter("arguments").Idcustomer;
+            if (nCustomer){
+                var oModel = this.getView().getModel();
+                var sPath = "/ClientesSet('" + nCustomer + "')";
+                oModel.read(sPath, {
+                    success: function (resultado) {
+                        oController._setCabecera(resultado);
+                    },
+                    error: function (error) {
+                        var mensaje = "Error info customer" + nCustomer;
+                        MessageToast.show(mensaje);
+                    }
+                });
 
-		/**
-		 * Called when the Controller is destroyed. Use this one to free resources and finalize activities.
-		 * @memberOf tosa8.my_gym.view.App
-		 */
-		//	onExit: function() {
-		//
-		//	}
+                oModel = this.getView().getModel();
+                sPath = "/ClientesSet('" + nCustomer + "')/ReclamosSet";
+                oModel.read(sPath, {
+                    success: function (resultado) {
+                        var modeloJSON = new sPath.ui.model.json.JSONModel(resultado.results);
+                        oController.getView().byId("_ClaimDetail").setModel(modeloJSON,"ClaimDetail");
+                    },
+                    error: function (error) {
+                        var mensaje = "Details couldn't be obtained: " + nCustomer;
+                        MessageToast.show(mensaje);
+                    }
+                });
+            }
+        },
+
+        _setCabecera: function (result) {
+            var text = "N° Customer: " + result.Idcustomer;
+            oController.getView().byId("_title1").setText(text);
+            oController.getView().byId("_title2").setText(text);
+
+            oController.getView().byId("_name").setText(text);
+            oController.getView().byId("_lastname").setText(text);
+            oController.getView().byId("_city").setText(text);
+            oController.getView().byId("_phone").setText(text);
+        }*/
+        
+
+		
 		});
     });

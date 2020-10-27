@@ -1,76 +1,14 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ns.HTML5Module.controller.Customer" displayBlock="true">
 	<Page xmlns="sap.m" id="page" title="{i18n>Clientes}" floatingFooter="true" navButtonPress=".onNavBack" showNavButton="true" showHeader="true">
         <content>
-        <HBox>
-        <items>
-            <Input xmlns="sap.m" id="_xProv" placeholder="Filtrar por prov" value="" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onHandleValueHelp"/>
-        </items>
-        </HBox>
-            <ScrollContainer vertical="true">
-                <Table xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" noDataText="Empty :)" id="tableC" items="{/ClientesSet}" cd:w5g.dt.context="/ClientesSet">
-                    <items>
-                        <ColumnListItem type="Navigation" press="onpressCustomer" id="item0" tooltip="More">
-                            <cells>
-                                <ObjectIdentifier text="{Idcustomer}"/>
-                                <ObjectAttribute text="{Name}"/>
-                                <ObjectAttribute text="{Lastname}"/>
-                                <ObjectAttribute text="{Province}"/>
-                                <ObjectAttribute text="{City}"/>
-                                <ObjectAttribute text="{Street}"/>
-                                <ObjectAttribute text="{Zip}"/>
-                                <ObjectAttribute text="{Tel}"/>
-                            </cells>
-                        </ColumnListItem>
-                    </items>
-                    <columns>
-                        <Column>
-                            <header>
-                                <Text text="{i18n>colId}"/>
-                            </header>
-                        </Column>
-                        <Column>
-                            <header>
-                                <Text text="{i18n>name}"/>
-                            </header>
-                        </Column>
-                        <Column>
-                            <header>
-                                <Text text="{i18n>lastname}"/>
-                            </header>
-                        </Column>
-                        <Column>
-                            <header>
-                                <Text text="{i18n>province}"/>
-                            </header>
-                        </Column>
-                        <Column>
-                            <header>
-                                <Text text="{i18n>city}"/>
-                            </header>
-                        </Column>
-                        <Column>
-                            <header>
-                                <Text text="{i18n>street}"/>
-                            </header>
-                        </Column>
-                        <Column>
-                            <header>
-                                <Text text="{i18n>zip}"/>
-                            </header>
-                        </Column>
-                        <Column>
-                            <header>
-                                <Text text="{i18n>tel}"/>
-                            </header>
-                        </Column>
-                    </columns>
-                
-                </Table>
-            
-            </ScrollContainer>
+            <List noDataText="Empty :)" id="list0" growing="true" items="{path:'/ClientesSet',filters:[{path:'Province',operator:'StartsWith',value1:''},{path:'City',operator:'StartsWith',value1:''}],sorter:[{path:'Idcustomer',descending:false}]}" sticky="HeaderToolbar" headerText="Customers" showUnread="true">
+                <items>
+                    <FeedListItem icon="sap-icon://person-placeholder" sender="{Lastname}, {Name}" info="{Idcustomer}" text="In {City}, {Province}"  type="Navigation" press=".onListItemPressed"/>
+                </items>
+            </List>
         </content>
-	<headerContent>
-	<Button xmlns="sap.m" text="New Customer" id="button0"/>
-	</headerContent>
+        <headerContent>
+            <Button text="New Customer" id="button0" icon="sap-icon://sys-add" press=".navToNewC" xmlns="sap.m"/>
+        </headerContent>
 	</Page>
 </mvc:View>

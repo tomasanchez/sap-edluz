@@ -124,7 +124,7 @@
         },
         {
             "name": "complaint",
-            "pattern": "complaint",
+            "pattern": "complaint/{Idcustomer}",
             "target": "Reclamos"
         },
         {
