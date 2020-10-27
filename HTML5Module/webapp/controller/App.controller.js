@@ -10,6 +10,9 @@ sap.ui.define([
 			return sap.ui.core.UIComponent.getRouterFor(this);
         },
     
+        /* 
+            Navigations 
+        */
 		onNavBack: function (oEvent) {
 			var oHistory, sPreviousHash;
 			oHistory = History.getInstance();
@@ -21,7 +24,6 @@ sap.ui.define([
 			}
         },
         
-
         navToTechs: function(oEvent){
             this.getRouter().navTo("techsList");
         },
@@ -61,5 +63,8 @@ sap.ui.define([
 			return bValidationError;
         },
 
+        /*
+            Buttons
+        */
 		});
 	});

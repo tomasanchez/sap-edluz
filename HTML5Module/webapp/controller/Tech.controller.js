@@ -17,7 +17,8 @@ sap.ui.define([
 		onInit: function () {
             oPreviousData = 0;
 			oController = this;
-			var oRouter = this.getRouter();
+            var oRouter = this.getRouter();
+            aInputs = oController._getInputs();
 			oRouter.getRoute("tech").attachMatched(this._onRouteMatched, this);
         },
 
@@ -30,7 +31,7 @@ sap.ui.define([
 			oController._readById(oTech.Idtech);
 			oView = this.getView();
 			oView.bindElement({
-				path: "/tech(" + oTech.IdClte + ")",
+				path: "/tech(" + oTech.Idtech + ")",
 				events: {
 					dataRequested: function (oEvent) {
 						oView.setBusy(true);
@@ -51,7 +52,20 @@ sap.ui.define([
         },
         
         /*
+            Getters
         */
+        _getInputs: function(){
+            return [
+					oController.byId("name"),
+                    oController.byId("lastname"),
+                    oController.byId("tel"),
+					oController.byId("province"),
+					oController.byId("city"),
+					oController.byId("street"),
+                    oController.byId("zip")
+                ];
+        },
+
         _readById: function (oId) {
 			var oModel = oController.getView().getModel();
 
@@ -62,8 +76,9 @@ sap.ui.define([
 			oModel.read(sPath, {
 				success: function (result) {
 					oPreviousData = result;
-					//this.getClientSports(sPath);
-					this.loadTech(result);
+                    this.loadTech(result);
+                    this._getComplaints(sPath);
+                    this._getMetrics(sPath);
 
 				}.bind(this),
 				error: function (error) {
@@ -76,11 +91,42 @@ sap.ui.define([
 			});
 
         },
+                _getComplaints: function(sPath){
+            var oModel = this.getView().getModel();
+
+			oModel.read(sPath + "/Reclamos", {
+				success: function (result) {
+					this._setComplaints(result);
+				}.bind(this),
+				error: function (error) {
+				}
+			});
+        },
+        _getMetrics: function(sPath){
+            var oModel = this.getView().getModel();
+
+			oModel.read(sPath + "/Medidor", {
+				success: function (result) {
+					this._setMetrics(result);
+				}.bind(this),
+				error: function (error) {
+				}
+			});
+        },
+
+        /*
+            Loaders 
+        */
         loadTech:function(result){
 
             oController._setHeader(result);
             oController._setForm(result);
         },
+
+
+        /*
+            Setters 
+        */
         _setHeader:function(oTech){
             var oExtendedHeader = oController.byId("_eHeader"),
                 oSnappedHeader = oController.byId("_sHeader");
@@ -106,12 +152,99 @@ sap.ui.define([
             oController.byId("zip").setValue(oTech.Zip);
             oController.byId("province").setValue(oTech.Province);
         },
-        _getComplaints: function(){
+
+        _setComplaints: function(oResult){
+            var modelJSON = new sap.ui.model.json.JSONModel(oResult.results);
+			this.byId("complaintsList").setModel(modelJSON, "Complaints");
+        },
+
+        _setMetrics: function(oResult){
+            var modelJSON = new sap.ui.model.json.JSONModel(oResult.results);
+			this.byId("metersList").setModel(modelJSON, "Metrics");
+        },
+
+        /*  
+            Buttons
+        */
+		handleEditPress: function (oEvent) {
+
+			//Enabling Editing
+			oController._enableEdits(true);
+			oController._toggleButtonsAndView(true);
+
+		},
+
+		handleCancelPress: function () {
+			//Restore the data
+			oController._setForm(oPreviousData);
+			oController._toggleButtonsAndView(false);
+			oController._enableEdits(false);
+		},
+
+		handleSavePress: function () {
+
+            var oTech = oController._createTech(aInputs);
+
+			oPreviousData = oTech;
+
+            oController._updateTech(oTech);
+			oController._toggleButtonsAndView(false);
+			oController._enableEdits(false);
 
         },
-        _getMetrics: function(){
-            
-        }
+
+		_enableEdits: function (active) {
+            aInputs.forEach(function(oInput){
+                oInput.setEditable(active);
+            });
+		},
+
+		_toggleButtonsAndView: function (bEdit) {
+
+			// Show the appropriate action buttons
+			oController.byId("edit").setVisible(!bEdit);
+			oController.byId("save").setVisible(bEdit);
+			oController.byId("cancel").setVisible(bEdit);
+		},
+        
+        _createTech: function (aInputs) {
+			return {
+				Idtech: oPreviousData.Idtech,
+				Name: aInputs[0].getDOMValue(),
+                Lastname: aInputs[1].getDOMValue(),
+                Tel: aInputs[2].getDOMValue(),
+                Province: aInputs[3].getDOMValue(),
+                City: aInputs[4].getDOMValue(),
+                Street: aInputs[5].getDOMValue(),
+                Zip: aInputs[6].getDOMValue()
+			};
+        },
+        
+        _updateTech: function (oTech) {
+
+			var oModelDefault = this.getView().getModel();
+
+			//Create Key
+			var sPath = oModelDefault.createKey("/TecnicosSet", {
+				Idtech: oTech.Idtech
+			});
+
+
+			oController.getView().setBusy(true);
+
+			oModelDefault.update(sPath, oTech, {
+				success: function (resultado) {
+                    oController.getView().setBusy(false);
+                    oController._setHeader(oTech);
+					MessageToast.show("Success! Tech Updated");
+				}.bind(this),
+				error: function (error) {
+					MessageToast.show("Error: something went wrong");
+					oController.getView().setBusy(false);
+				}
+			});
+		},
+
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
 		 * (NOT before the first rendering! onInit() is used for that one!).

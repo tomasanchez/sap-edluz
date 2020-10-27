@@ -12,6 +12,11 @@
                             <Title id="_sHeader" text="Tech Lastname, Name - #ID" wrapping="true"/>
                         </FlexBox>
                     </uxap:snappedHeading>
+                    <uxap:actions>
+                    	<OverflowToolbarButton icon="sap-icon://user-edit" text="Edit" tooltip="Edit" id="edit" press="handleEditPress" type="Emphasized"/>
+                        <OverflowToolbarButton icon="sap-icon://save" text="Save" type="Emphasized" tooltip="Save" id="save" visible="false" press="handleSavePress"/>
+                    	<OverflowToolbarButton text="Cancel" type="Default" tooltip="Cancel" id="cancel" icon="sap-icon://cancel" visible="false" press="handleCancelPress"/>
+                    </uxap:actions>
                 </uxap:ObjectPageDynamicHeaderTitle>
             </uxap:headerTitle>
             <uxap:headerContent>
@@ -65,7 +70,7 @@
                 <uxap:ObjectPageSection title="{i18n>techSupport}">
                     <uxap:ObjectPageSubSection>
                         <uxap:blocks>
-                        <List headerText="{i18n>claimsHandled}" items="{Complaints>/}" noDataText="{i18n>noComplaints}">
+                        <List id="complaintsList" headerText="{i18n>claimsHandled}" items="{Complaints>/}" noDataText="{i18n>noComplaints}">
                             <DisplayListItem label="{Complaints>Idcomplaint/}" value="{Complaints>Dateclosed/}"/>
                         </List>
                         </uxap:blocks>
@@ -74,8 +79,8 @@
                 <uxap:ObjectPageSection title="{i18n>assignments}">
                     <uxap:ObjectPageSubSection>
                         <uxap:blocks>
-                        <List headerText="{i18n>readings}" items="{Metrics>/}" noDataText="{i18n>noComplaints}">
-                            <DisplayListItem label="{Complaints>Idcomplaint/}" value="{Complaints>Dateclosed/}"/>
+                        <List id="metersList" headerText="{i18n>readings}" items="{Metrics>/}" noDataText="{i18n>noComplaints}">
+                            <DisplayListItem label="{Metrics>Idmeter/}" value="{Complaints>Consumption/}"/>
                         </List>
                         </uxap:blocks>
                     </uxap:ObjectPageSubSection>
