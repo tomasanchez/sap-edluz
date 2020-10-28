@@ -1,7 +1,9 @@
 sap.ui.define([
-    "ns/HTML5Module/controller/App.controller"
+    "ns/HTML5Module/controller/App.controller",
+    "sap/ui/model/Filter",
+	"sap/ui/model/FilterOperator",
 	],
-	function (AppController) {
+	function (AppController, Filter, FilterOperator) {
 		"use strict";
 
 		return AppController.extend("ns.HTML5Module.controller.Techs", {
@@ -24,6 +26,37 @@ sap.ui.define([
 			});
 		},
 
+        onSearch: function (oEvent) {
+			// add filter for search
+			var aFilters = [];
+			var sQuery = oEvent.getSource().getValue();
+			if (sQuery && sQuery.length > 0) {
+				var filter = new Filter("Name", FilterOperator.Contains, sQuery);
+				aFilters.push(filter);
+			}
+
+			// update list binding
+			var oList = this.byId("idList");
+			var oBinding = oList.getBinding("items");
+			oBinding.filter(aFilters, "Name");
+        },
+        
+        onSelectionChange: function (oEvent) {
+			var oList = oEvent.getSource();
+			var oLabel = this.byId("idFilterLabel");
+			var oInfoToolbar = this.byId("idInfoToolbar");
+
+			// With the 'getSelectedContexts' function you can access the context paths
+			// of all list items that have been selected, regardless of any current
+			// filter on the aggregation binding.
+			var aContexts = oList.getSelectedContexts(true);
+
+			// update UI
+			var bSelected = (aContexts && aContexts.length > 0);
+			var sText = (bSelected) ? aContexts.length + " selected" : null;
+			oInfoToolbar.setVisible(bSelected);
+			oLabel.setText(sText);
+		}
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
 		 * (NOT before the first rendering! onInit() is used for that one!).

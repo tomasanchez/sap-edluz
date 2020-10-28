@@ -53,7 +53,7 @@ sap.ui.define([
                 MessageToast.show("* required fields");
             }else {
                 var oEntidad = {
-                    Idcustomer: idCustomer,
+                    Idcustomer: Math.floor(Math.random()*32767),
                     Name: nameC,
                     Lastname: lastC,
                     Province: provinceC,
@@ -62,19 +62,20 @@ sap.ui.define([
                     Zip: zipC,
                     Tel: phoneC
                 };
-                MessageToast.show("Success: Customer " + idCustomer + " created");
+                
 
                 this.getView().setBusy(true);
                 
-                oController.getView().getModel().create("/ClientesSet", oEntidad, {
+                this.getView().getModel().create("/ClientesSet", oEntidad, {
                     success: function(resultado) {
                         this.getView().setBusy(false);
+                        MessageToast.show("Success: Customer " + oEntidad.Idcustomer + " created");
                         this._Dialog.close();
                     }.bind(this),
                     error: function(error) {
                         MessageToast.show("Error");
                         this.getView().setBusy(false);
-                    }
+                    }.bind(this)
                 });
             }
         },
