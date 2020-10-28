@@ -49,7 +49,7 @@ sap.ui.define([
             var zipC = sap.ui.getCore().byId("_idZip").getValue();
             var phoneC = sap.ui.getCore().byId("_idPhone").getValue();
 
-            if (!idCustomer) {
+            if (!!idCustomer && !!nameC && !!lastC && !!phoneC) {
                 MessageToast.show("* required fields");
             }else {
                 var oEntidad = {

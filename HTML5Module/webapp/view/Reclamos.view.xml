@@ -20,10 +20,10 @@
                         <FlexBox wrap="Wrap" width="700%" justifyContent="Start">
                             <f:Avatar class="sapUiSmallMarginEnd" src="sap-icon://customer" displaySize="L" backgroundColor="Random" />
                             <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
-                                <ObjectStatus id="_name" title="{i18n>Name}" text=""/>
-                                <ObjectStatus id="_lastname" title="{i18n>Lastname}" text=""/>
-                                <ObjectStatus id="_city" title="{i18n>City}" text=""/>
-                                <ObjectStatus id="_phone" title="{i18n>Phone}" text=""/>
+                                <ObjectStatus id="_name" title="{i18n>name}" text=""/>
+                                <ObjectStatus id="_lastname" title="{i18n>lastName}" text=""/>
+                                <ObjectStatus id="_city" title="{i18n>city}" text=""/>
+                                <ObjectStatus id="_phone" title="{i18n>tel}" text=""/>
                             </layout:VerticalLayout>
                         </FlexBox>
                     </items>
