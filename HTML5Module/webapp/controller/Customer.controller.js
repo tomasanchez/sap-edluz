@@ -64,10 +64,10 @@ sap.ui.define([
                 };
                 MessageToast.show("Success: Customer " + idCustomer + " created");
 
-                this.getView.setBusy(true);
+                this.getView().setBusy(true);
                 
                 oController.getView().getModel().create("/ClientesSet", oEntidad, {
-                    Success: function(resultado) {
+                    success: function(resultado) {
                         this.getView().setBusy(false);
                         this._Dialog.close();
                     }.bind(this),
@@ -77,6 +77,35 @@ sap.ui.define([
                     }
                 });
             }
+        },
+
+        refreshTable: function(oEvent) {
+            this.refresh();
+        },
+
+        refresh: function() {
+            var oModel = this.getView().getModel();
+
+            oModel.read("ClientesSet", {
+                success: function (resultado) {
+                    MessageToast.show("Success");
+                    this.loadModel(resultado.results);
+                }.bind(this),
+                error: function(error) {
+                    MessageToast.show("Error");
+                }
+            });
+        },
+
+        loadModel: function(arrayResultado) {
+            var nuevoResultado = [];
+            arrayResultado.forEach(function (item) {
+                nuevoResultado.push(item);
+            }.bind(this));
+
+            var modeloJSON = new sap.ui.model.json.JSONModel(nuevoResultado);
+            oController.getView().setModel(modeloJSON, "/ClientesSet");
+
         }
 
 		
