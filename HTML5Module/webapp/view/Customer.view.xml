@@ -8,7 +8,7 @@
             </List>
         </content>
         <headerContent>
-            <Button text="New Customer" id="button0" icon="sap-icon://sys-add" press=".navToNewC" xmlns="sap.m"/>
+            <Button text="New Customer" id="button01" icon="sap-icon://sys-add" press="onNewCustomer" xmlns="sap.m"/>
         </headerContent>
 	</Page>
 </mvc:View>

@@ -1,0 +1,33 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+    <Dialog title="New Customer">
+        <l:Grid defaultSpan="L12 M12 S12" width="auto" id="idGrid">
+            <l:content>
+                <f:SimpleForm id="SimpleFormDisplay354" minWidth="1024" maxContainerCols="2" editable="false" layout="ResponsiveGridLayout" labelSpanL="3"
+                labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="2" columnsM="2">
+                    <f:content>
+                        <Label text="ID" required="true"/>
+                        <Input id="_idCustomer" placeholder="N° customer" value=""/>
+                        <Label text="Name" required="true"/>
+                        <Input id="_idName" value="" placeholder="Name"/>
+                        <Label text="Last Name" required="true"/>
+                        <Input id="_idLastN" value="" placeholder="Last Name"/>
+                        <Label text="Province" required="false"/>
+                        <Input id="_idProvince" value="" placeholder="Province"/>
+                        <Label text="City" required="false"/>
+                        <Input id="_idCity" value="" placeholder="City"/>
+                        <Label text="Street" required="false"/>
+                        <Input id="_idStreet" value="" placeholder="Street"/>
+                        <Label text="ZIP" required="false"/>
+                        <Input id="_idZip" value="" placeholder="Zip"/>
+                        <Label text="Phone" required="true"/>
+                        <Input id="_idPhone" value="" placeholder="Phone"/>
+                    </f:content>
+                </f:SimpleForm>
+            </l:content>
+        </l:Grid>
+        <buttons>
+            <Button text="Create" press="onSave" type="Accept"/>
+            <Button text="Cancel" press="onCancel" type="Default"/>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>
