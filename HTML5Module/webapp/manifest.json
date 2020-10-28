@@ -131,6 +131,11 @@
             "name": "customer",
             "pattern": "customer",
             "target": "Customer"
+        },
+        {
+            "name": "consumptions",
+            "pattern": "consumptions",
+			"target": "Consumptions"
         }
       ],
       "targets": {
@@ -167,6 +172,11 @@
         "Customer":{
             "viewType": "XML",
             "viewName": "Customer",
+            "viewLevel": 1
+        },
+        "Consumptions":{
+            "viewType": "XML",
+            "viewName": "Consumptions",
             "viewLevel": 1
         }
       }

@@ -1,0 +1,43 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:vbm="sap.ui.vbm" xmlns:l="sap.ui.layout" controllerName="ns.HTML5Module.controller.Consumptions" displayBlock="true">
+
+<Page xmlns="sap.m" id="pageId" title="Page Title" floatingFooter="true" backgroundDesign="Solid" showNavButton="true">
+
+    <headerContent>
+
+        <Button icon="sap-icon://action" tooltip="Share" id="button0"/>
+
+        
+
+    </headerContent>
+
+    <footer>
+
+        <OverflowToolbar id="toolbar1">
+
+            <ToolbarSpacer/>
+
+            <Button type="Accept" text="Accept"/>
+
+            </OverflowToolbar>
+
+        
+
+    </footer>
+
+    <content>
+    </content>
+        <vbm:AnalyticMap xmlns:l="sap.ui.layout" scaleVisible="false" id="vbi" enableAnimation="true" zoomlevel="5" initialPosition="-60;-35;0" initialZoom="3" height="75%" width="100%">
+            <vbm:regions>
+				<vbm:Region code="{Map>code}" color="{Map>color}" tooltip="{Map>county}"/>
+			</vbm:regions>
+			<vbm:legend>
+				<vbm:Legend id="legend" caption="Decline in birth rate" items="{Map>/Legend}">
+				<vbm:LegendItem text="{Map>text}" color="{Map>color}"/>
+				</vbm:Legend>
+			</vbm:legend>
+	    </vbm:AnalyticMap>
+   
+
+    </Page>
+
+</mvc:View>
