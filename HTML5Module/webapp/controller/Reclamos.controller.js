@@ -48,8 +48,7 @@ sap.ui.define([
 						oView.setBusy(false);
 					}
 				}
-			});
-
+            });
             /*    var oModel = this.getView().getModel(),
                 sPath = "/ClientesSet('" + nCustomer + "')/ReclamosSet";
                 oModel.read(sPath, {
@@ -80,6 +79,20 @@ sap.ui.define([
             oController.getView().byId("_phone").setText(texto);
         },
 
+        _setComplaint: function(oResult){
+            var modelJSON = new sap.ui.model.json.JSONModel(oResult.results);
+            this.byId("_ClaimDetail").setModel(modelJSON, "ClaimDetail");
+        },
+
+        _setContent: function (result){
+            /*oController.byId("idcomplaint").setValue(result.Idcomplaint);
+            oController.byId("type").setValue(result.Type);
+            oController.byId("date").setValue(result.Dateopen);
+            oController.byId("status").setValue(result.Status);
+            oController.byId("urgency").setValue(result.Urgency);*/
+            
+        },
+
          _readById: function (oId) {
 			var oModel = oController.getView().getModel();
 
@@ -90,6 +103,9 @@ sap.ui.define([
 			oModel.read(sPath, {
 				success: function (result) {
                 oController._setCabecera(result);
+            //    oController._setContent(result);
+                this._getComplaint(sPath);
+                
 
 				}.bind(this),
 				error: function (error) {
@@ -100,7 +116,25 @@ sap.ui.define([
 				}
 			});
 
+        },
+
+        loadModel: function (result){
+            oController._setCabecera(result);
+            oController._setContent(result);
+        },
+
+        _getComplaint: function(sPath){
+            var oModel = this.getView().getModel();
+
+			oModel.read(sPath + "/Reclamos", {
+				success: function (result) {
+					this._setComplaint(result);
+				}.bind(this),
+				error: function (error) {
+				}
+			});
         }
+
         
         
 

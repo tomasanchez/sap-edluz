@@ -167,7 +167,7 @@
         "Reclamos":{
             "viewType": "XML",
             "viewName": "Reclamos",
-            "viewLevel": 1
+            "viewLevel": 2
         },
         "Customer":{
             "viewType": "XML",

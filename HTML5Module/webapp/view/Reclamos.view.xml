@@ -34,15 +34,15 @@
                     <uxap:subSections>
                         <uxap:ObjectPageSubSection >
                             <uxap:blocks>
-                                <Table id="_ClaimDetail" items="{ClaimDetail>/}" noDataText="Empty :)" >
+                                <Table id="_ClaimDetail" items="{ClaimDetail>/}" noDataText="Empty :)">
                                     <items>
                                         <ColumnListItem id="item0" >
                                             <cells>
-                                                <ObjectIdentifier text="{ClaimDetail>idcomplaint}"/>
-                                                <ObjectAttribute text="{ClaimDetail>type}"/>
-                                                <ObjectAttribute text="{ClaimDetail>date}"/>
-                                                <ObjectAttribute text="{ClaimDetail>status}"/>
-                                                <ObjectAttribute text="{ClaimDetail>urgency}"/>                                                    </cells>
+                                                <ObjectIdentifier id="idcomplaint" text="{ClaimDetail>Idcomplaint}"/>
+                                                <ObjectAttribute id="type" text="{ClaimDetail>Type}"/>
+                                                <ObjectAttribute id="date" text="{ClaimDetail>Dateopen}"/>
+                                                <ObjectAttribute id="status" text="{ClaimDetail>Status}"/>
+                                                <ObjectAttribute id="urgency" text="{ClaimDetail>Urgency}"/>                                                 </cells>
                                         </ColumnListItem>
                                     </items>
                                     <columns>
