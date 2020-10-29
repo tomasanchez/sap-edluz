@@ -85,11 +85,11 @@ sap.ui.define([
         },
 
         _setContent: function (result){
-            /*oController.byId("idcomplaint").setValue(result.Idcomplaint);
+            oController.byId("idcomplaint").setValue(result.Idcomplaint);
             oController.byId("type").setValue(result.Type);
             oController.byId("date").setValue(result.Dateopen);
             oController.byId("status").setValue(result.Status);
-            oController.byId("urgency").setValue(result.Urgency);*/
+            oController.byId("urgency").setValue(result.Urgency);
             
         },
 
