@@ -3,7 +3,7 @@ sap.ui.define([
     "sap/m/MessageToast",
 	"sap/m/MessageBox"   
 	],
-	function (AppController, MessageToast) {
+	function (AppController, MessageToast, MessageBox) {
         "use strict";
         var oController;
 
@@ -20,7 +20,7 @@ sap.ui.define([
 			oItem = oEvent.getSource();
 			oCtx = oItem.getBindingContext();
 			oId = oCtx.getProperty("Idcustomer");
-			this.getRouter().navTo("complaIn",{
+			this.getRouter().navTo("complaint",{
 				Idcustomer : oId
 			});
         },
