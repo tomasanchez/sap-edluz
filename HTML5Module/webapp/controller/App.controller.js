@@ -46,6 +46,18 @@ sap.ui.define([
         /*
             Inputs
         */
+       _getInputsPersonalData: function(){
+            return [
+					sap.ui.getCore().byId("name"),
+                    sap.ui.getCore().byId("lastName"),
+                    sap.ui.getCore().byId("tel"),
+					sap.ui.getCore().byId("province"),
+					sap.ui.getCore().byId("city"),
+					sap.ui.getCore().byId("street"),
+                    sap.ui.getCore().byId("zip")
+                ];
+        },
+
         onValueChange: function (oEvent) {
 			var oInput = oEvent.getSource();
 			this._validateInput(oInput);

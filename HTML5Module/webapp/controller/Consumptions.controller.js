@@ -13,7 +13,7 @@ sap.ui.define([
 		 * @memberOf tosa8.my_gym.view.App
 		 */
 		onInit: function () {
-            var oModel = new JSONModel(this._getMap());
+            var oModel = new JSONModel(this._getMonths());
             this.getView().setModel(oModel);
             
             // set the device model
@@ -23,20 +23,10 @@ sap.ui.define([
             
             oModel.attachRequestCompleted(function(oEvent) {
 				for (var i = 0; i <= 50; i++) {
-					var birth2013 = oModel.getProperty("/Regions/" + i + "/birth2013");
-					var birth2006 = oModel.getProperty("/Regions/" + i + "/birth2006");
-					var birthRate = ((birth2006 - birth2013) / birth2013) * 100;
-					if (birthRate >= 15) {
-						oModel.setProperty("/Regions/" + i + "/color", "rgb(27,126,172)");
-					} else if (birthRate >= 10) {
-						oModel.setProperty("/Regions/" + i + "/color", "rgb(39,163,221)");
-					} else if (birthRate >= 5) {
-						oModel.setProperty("/Regions/" + i + "/color", "rgb(92,186,229)");
-					} else if (birthRate >= 1) {
-						oModel.setProperty("/Regions/" + i + "/color", "rgb(132,202,236)");
-					} else {
-						oModel.setProperty("/Regions/" + i + "/color", "rgb(171,219,242)");
-					}
+					var vConsumption = oModel.getProperty("/Months/" + i + "/Consumption");
+					var vTests = oModel.getProperty("/Months/" + i + "/Tests");
+					var vAverage = (vConsumption / vTests);
+					oModel.setProperty("/Months/" + i + "/Consuption", vAverage);
 				}
             });
             
@@ -51,179 +41,96 @@ sap.ui.define([
 			MessageToast.show("The selection changed: " + oPoint.getLabel() + " " + ((oPoint.getSelected()) ? "selected" : "deselected"));
 		},
 
-        _getMap: function(){
+        _getMonths: function(){
             return {
-		"Regions":
-			[
-		        {
-		            "county": "CABA",
-		            "code": "AR-C",
-		            "birth2013": "15.1",
-		            "birth2006": "17.09"
-		        },
-		        {
-		            "county": "Buenos Aires",
-		            "code": "AR-B",
-		            "birth2013": "11.64",
-		            "birth2006": "13.19"
-		        },
-		        {
-		            "county": "Catamarca",
-		            "code": "AR-K",
-		            "birth2013": "12.71",
-		            "birth2006": "13.73"
-		        },
-		        {
-		            "county": "Chaco",
-		            "code": "AR-H",
-		            "birth2013": "8.83",
-		            "birth2006": "10.66"
-		        },
-		        {
-		            "county": "Chubut",
-		            "code": "AR-U",
-		            "birth2013": "10.26",
-		            "birth2006": "12.15"
-		        },
-		        {
-		            "county": "Cordoba",
-		            "code": "AR-X",
-		            "birth2013": "9.83",
-		            "birth2006": "10.42"
-		        },
-		        {
-		            "county": "Corrientes",
-		            "code": "AR-W",
-		            "birth2013": "12.41",
-		            "birth2006": "13.7"
-		        },
-		        {
-		            "county": "DistrictofColumbia",
-		            "code": "AR-E",
-		            "birth2013": "13.32",
-		            "birth2006": "16"
-		        },
-		        {
-		            "county": "Florida",
-		            "code": "AR-P",
-		            "birth2013": "13.55",
-		            "birth2006": "13.79"
-		        },
-		        {
-		            "county": "Georgia",
-		            "code": "AR-Y",
-		            "birth2013": "12.71",
-		            "birth2006": "14.13"
-		        },
-		        {
-		            "county": "Idaho",
-		            "code": "AR-L",
-		            "birth2013": "10.46",
-		            "birth2006": "11.58"
-		        },
-		        {
-		            "county": "Illinois",
-		            "code": "AR-F",
-		            "birth2013": "11.75",
-		            "birth2006": "13.29"
-		        },
-		        {
-		            "county": "Indiana",
-		            "code": "AR-M",
-		            "birth2013": "10.99",
-		            "birth2006": "13.24"
-		        },
-		        {
-		            "county": "Iowa",
-		            "code": "AR-N",
-		            "birth2013": "11.06",
-		            "birth2006": "11.57"
-		        },
-		        {
-		            "county": "Kansas",
-		            "code": "AR-Q",
-		            "birth2013": "10.81",
-		            "birth2006": "11.8"
-		        },
-		        {
-		            "county": "Kentucky",
-		            "code": "AR-R",
-		            "birth2013": "12.63",
-		            "birth2006": "15.1"
-		        },
-		        {
-		            "county": "Louisiana",
-		            "code": "AR-A",
-		            "birth2013": "15.1",
-		            "birth2006": "16.36"
-		        },
-		        {
-		            "county": "Maine",
-		            "code": "AR-J",
-		            "birth2013": "9.32",
-		            "birth2006": "11.09"
-		        },
-		        {
-		            "county": "Maryland",
-		            "code": "AR-D",
-		            "birth2013": "11.88",
-		            "birth2006": "13.52"
-		        },
-		        {
-		            "county": "MassachARetts",
-		            "code": "AR-Z",
-		            "birth2013": "10.01",
-		            "birth2006": "11.29"
-		        },
-		        {
-		            "county": "Michigan",
-		            "code": "AR-S",
-		            "birth2013": "11.65",
-		            "birth2006": "12.52"
-		        },
-		        {
-		            "county": "Minnesota",
-		            "code": "AR-G",
-		            "birth2013": "9.85",
-		            "birth2006": "10.51"
-		        },
-		        {
-		            "county": "Mississippi",
-		            "code": "AR-V",
-		            "birth2013": "16.57",
-		            "birth2006": "18.77"
-		        },
-		        {
-		            "county": "Missouri",
-		            "code": "AR-T",
-		            "birth2013": "11.33",
-		            "birth2006": "12.8"
-		        }
-		    ],
-			"Legend":
-				[
-					{
-						"text": "No change",
-						"color": "rgb(171,219,242)"
-					},
-					{
-						"text": "1% - 4%",
-						"color": "rgb(132,202,236)"
-					},
-					{
-						"text": "5% - 9%",
-						"color": "rgb(92,186,229)"
-					},
-					{
-						"text": "10% - 14%",
-						"color": "rgb(39,163,221)"
-					},
-					{
-						"text": "15% or more decline",
-						"color": "rgb(27,126,172)"
-					}
-				]
-	}
+                Months:[
+                    {
+                        Name: "January",
+                        Tag: "Jan",
+                        Id: 1,
+                        Consumption: 1200,
+                        Tests: 1,
+                    },
+                    {
+                        Name: "February",
+                        Tag: "Feb",
+                        Id: 2,
+                        Consumption: 1130,
+                        Tests: 1,
+                    },
+                    {
+                        Name: "March",
+                        Tag: "March",
+                        Id: 3,
+                        Consumption: 1049,
+                        Tests: 1
+                    },
+                    {
+                        Name: "April",
+                        Tag: "April",
+                        Id: 4,
+                        Consumption: 879,
+                        Tests: 1
+                    },
+                    {
+                        Name: "May",
+                        Tag: "May",
+                        Id: 5,
+                        Consumption: 897,
+                        Tests: 1
+                    },
+                    {
+                        Name: "June",
+                        Tag: "June",
+                        Id: 6,
+                        Consumption: 932,
+                        Tests: 1
+                    },
+                    {
+                        Name: "July",
+                        Tag: "July",
+                        Id: 7,
+                        Consumption: 1123,
+                        Tests: 1
+                    },
+                    {
+                        Name: "August",
+                        Tag: "Aug",
+                        Id: 8,
+                        Consumption: 1240,
+                        Tests: 1
+                    },
+                    {
+                        Name: "September",
+                        Tag: "Sep",
+                        Id: 3,
+                        Consumption: 1049,
+                        Tests: 1
+                    },
+                    {
+                        Name: "October",
+                        Tag: "Oct",
+                        Id: 10,
+                        Consumption: 920,
+                        Tests: 1,
+                    },
+                    {
+                        Name: "November",
+                        Tag: "Nov",
+                        Id: 11,
+                        Consumption: 876,
+                        Tests: 1,
+                    },
+                    {
+                        Name: "October",
+                        Tag: "Oct",
+                        Id: 12,
+                        Consumption: 980,
+                        Tests: 1,
+                    }
+                    
+                ]
+	        }
         }
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered

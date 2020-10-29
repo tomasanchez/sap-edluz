@@ -18,7 +18,7 @@
                         </m:VBox>
                         <m:VBox id="vbox3" width="100%" height="95%">
                             <m:Text text="Second Semester" width="100%" textAlign="Center"/>
-                            <InteractiveLineChart id="2SProvince" selectionChanged="selectionChanged" press="press" precedingPoint="15" succeedingPoint="89">
+                            <InteractiveLineChart id="2SProvince" selectionChanged="selectionChanged" press="press" precedingPoint="15" succeedingPoint="1400">
                                 <points>
                                     <InteractiveLineChartPoint id="m07" value="51.4" label="July"/>
                                     <InteractiveLineChartPoint id="m08" value="52" label="Aug"/>

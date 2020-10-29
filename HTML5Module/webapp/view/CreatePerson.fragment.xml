@@ -1,0 +1,39 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+    <Dialog id="creator" title="New Person">
+
+
+ <sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" editable="true" layout="ResponsiveGridLayout" id="form3" cd:w5g.dt.context="/TecnicosSet">
+
+            <sap.ui.layout.form:content>
+
+                <sap.ui.core:Title text="Personal Data" id="title8" emphasized="true"/>
+
+                <Label text="{i18n>name}/{i18n&gt;lastName}" id="label2" required="true"/>
+
+                <Input width="100%" id="name" placeholder="Name" maxLength="15" valueStateText="{i18n>textValidate}"/>
+
+                <Input width="100%" id="lastName" placeholder="Last Name" maxLength="15" valueStateText="{i18n>textValidate}"/>
+
+                <Label text="{i18n>tel}" id="label3"/>
+
+                <Input width="100%" id="tel" placeholder="1123906798" maxLength="10" type="Tel" valueStateText="{i18n>tel}"/>
+
+                <Label text="{i18n>province}/{i18n>city}/{i18n&gt;street}/{i18n>zip}" width="100%" id="label4"/>
+
+                <Input xmlns="sap.m" id="province" placeholder="Code Province ex. B" maxLength="3" valueStateText="{i18n>textValidate}"/>
+
+                <Input xmlns="sap.m" id="city" placeholder="City" maxLength="15" valueStateText="{i18n>textValidate}"/>
+
+                <Input xmlns="sap.m" id="street" placeholder="Street" maxLength="30" valueStateText="{i18n>textValidate}"/>
+
+                <Input xmlns="sap.m" id="zip" placeholder="ZIP" maxLength="10" type="Number" valueStateText="{i18n>zipValidate}"/>
+                </sap.ui.layout.form:content>
+
+        </sap.ui.layout.form:SimpleForm>
+
+        <buttons>
+            <Button text="Create" press="onSave" type="Emphasized"/>
+            <Button text="Cancel" press="onCancel" type="Default"/>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

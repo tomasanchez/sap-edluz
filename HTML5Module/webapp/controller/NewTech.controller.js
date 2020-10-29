@@ -24,7 +24,7 @@ sap.ui.define([
         onCreate: function(){
             var oModel = oController.getView().getModel();
 
-            var aInputs = oController._getInputs(),
+            var aInputs = oController._getInputsPersonalData(),
                 bValidationError = false;
 
 			aInputs.forEach(function (oInput) {
@@ -61,7 +61,7 @@ sap.ui.define([
         },
 
         onCancel: function(){
-            oController._getInputs().forEach(function (oInput) {
+            oController._getInputsPersonalData().forEach(function (oInput) {
                 oInput.setValue(null);
                 oInput.setValueState("None");
             });
@@ -82,25 +82,14 @@ sap.ui.define([
 				Idtech: Math.floor(Math.random() * 32767),
 				Name: aInputs[0].getDOMValue(),
                 Lastname: aInputs[1].getDOMValue(),
+                Tel: aInputs[2].getDOMValue(),
                 Province: aInputs[3].getDOMValue(),
                 City: aInputs[4].getDOMValue(),
                 Street: aInputs[5].getDOMValue(),
-                Zip: aInputs[6].getDOMValue(),
-                Tel: aInputs[2].getDOMValue()
+                Zip: aInputs[6].getDOMValue()
 			};
-		},
+		}
 
-        _getInputs: function(){
-            return [
-					oController.byId("name"),
-                    oController.byId("lastName"),
-                    oController.byId("tel"),
-					oController.byId("province"),
-					oController.byId("city"),
-					oController.byId("street"),
-                    oController.byId("zip")
-                ];
-        },
 
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
