@@ -1,13 +1,11 @@
 sap.ui.define([
-    "sap/ui/vbm/AnalyticMap",
     "ns/HTML5Module/controller/App.controller",
     "sap/ui/model/json/JSONModel",
 	"sap/ui/Device",
 	"sap/m/MessageToast"
 	],
-	function(AnalyticMap, AppController, JSONModel, Device, MessageToast) {
+	function( AppController, JSONModel, Device, MessageToast) {
         "use strict";
-        AnalyticMap.("https://infra.datos.gob.ar/catalog/modernizacion/dataset/7/distribution/7.2/download/provincias.json")
 		return AppController.extend("ns.HTML5Module.controller.Home", {
             /**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
@@ -16,7 +14,7 @@ sap.ui.define([
 		 */
 		onInit: function () {
             var oModel = new JSONModel(this._getMap());
-            this.getView().setModel(oModel, "Map");
+            this.getView().setModel(oModel);
             
             // set the device model
 			var oDeviceModel = new JSONModel(Device);
@@ -42,15 +40,16 @@ sap.ui.define([
 				}
             });
             
-            this.byId("vbi").setVisualFrame({
-				"minLon": -130,
-				"maxLon": -62,
-				"minLat": 15,
-				"maxLat": 58,
-				"minLOD": 4
-			});
+        },
+
+        press: function (oEvent) {
+			MessageToast.show("The interactive line chart is pressed.");
 		},
 
+		selectionChanged: function (oEvent) {
+			var oPoint = oEvent.getParameter("point");
+			MessageToast.show("The selection changed: " + oPoint.getLabel() + " " + ((oPoint.getSelected()) ? "selected" : "deselected"));
+		},
 
         _getMap: function(){
             return {

@@ -1,4 +1,4 @@
-<mvc:View xmlns:uxap="sap.uxap" xmlns:layout="sap.ui.layout" xmlns:f="sap.f" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ns.HTML5Module.controller.App" displayBlock="true">
+<mvc:View xmlns:uxap="sap.uxap" xmlns:layout="sap.ui.layout" xmlns:f="sap.f" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ns.HTML5Module.controller.Reclamos" displayBlock="true">
     <Page showHeader="true" xmlns="sap.m" id="pageId" title="{i18n>TitleComplaint}" floatingFooter="true" navButtonPress=".onNavBack" showNavButton="true">
         <uxap:ObjectPageLayout>
             <uxap:headerTitle>

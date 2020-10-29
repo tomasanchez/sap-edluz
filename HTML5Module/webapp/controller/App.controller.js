@@ -40,6 +40,9 @@ sap.ui.define([
             this.getRouter().navTo("customer");
         },
 
+        navToConsumptions: function(oEvent){
+            this.getRouter().navTo("consumptions");
+        },
         /*
             Inputs
         */

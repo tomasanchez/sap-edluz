@@ -1,0 +1,388 @@
+{
+    "type": "FeatureCollection",
+    "features": [{
+        "properties": {
+            "nombre_completo": "Provincia de Misiones",
+            "fuente": "IGN",
+            "id2": "AR-N",
+            "nombre": "Misiones",
+            "id": "54",
+            "categoria": "Provincia",
+            "iso_nombre": "Misiones"
+        },
+        "type": "Feature",
+        "geometry": {
+            "coordinates": [-54.6516966230371, -26.8753965086829],
+            "type": "Point"
+        },
+        "id": "08294536-0d6b-47d0-9f6f-be32d8e432d8"
+    }, {
+        "properties": {
+            "nombre_completo": "Provincia de San Luis",
+            "fuente": "IGN",
+            "id2": "AR-D",
+            "nombre": "San Luis",
+            "id": "74",
+            "categoria": "Provincia",
+            "iso_nombre": "San Luis"
+        },
+        "type": "Feature",
+        "geometry": {
+            "coordinates": [-66.0281298195836, -33.7577257449137],
+            "type": "Point"
+        },
+        "id": "1d23ddcf-2604-40c3-a17d-9992275dc049"
+    }, {
+        "properties": {
+            "nombre_completo": "Provincia de San Juan",
+            "fuente": "IGN",
+            "id2": "AR-J",
+            "nombre": "San Juan",
+            "id": "70",
+            "categoria": "Provincia",
+            "iso_nombre": "San Juan"
+        },
+        "type": "Feature",
+        "geometry": {
+            "coordinates": [-68.8894908486844, -30.8653679979618],
+            "type": "Point"
+        },
+        "id": "69e0e782-3d9d-4341-8661-ee3d249133fe"
+    }, {
+        "properties": {
+            "nombre_completo": "Provincia de Entre RÃ­os",
+            "fuente": "IGN",
+            "id2": "AR-E",
+            "nombre": "Entre RÃ­os",
+            "id": "30",
+            "categoria": "Provincia",
+            "iso_nombre": "Entre RÃ­os"
+        },
+        "type": "Feature",
+        "geometry": {
+            "coordinates": [-59.2014475514635, -32.0588735436448],
+            "type": "Point"
+        },
+        "id": "e519e61a-19bc-4057-a4d3-4210dbdcb52d"
+    }, {
+        "properties": {
+            "nombre_completo": "Provincia de Santa Cruz",
+            "fuente": "IGN",
+            "id2": "AR-Z",
+            "nombre": "Santa Cruz",
+            "id": "78",
+            "categoria": "Provincia",
+            "iso_nombre": "Santa Cruz"
+        },
+        "type": "Feature",
+        "geometry": {
+            "coordinates": [-69.9557621671973, -48.8154851827063],
+            "type": "Point"
+        },
+        "id": "5f3a3147-2b73-4a95-bb94-c1968a462d0c"
+    }, {
+        "properties": {
+            "nombre_completo": "Provincia de RÃ­o Negro",
+            "fuente": "IGN",
+            "id2": "AR-R",
+            "nombre": "RÃ­o Negro",
+            "id": "62",
+            "categoria": "Provincia",
+            "iso_nombre": "RÃ­o Negro"
+        },
+        "type": "Feature",
+        "geometry": {
+            "coordinates": [-67.229329893694, -40.4057957178801],
+            "type": "Point"
+        },
+        "id": "ef21ed1e-ded3-4dad-9eed-527e707cb21d"
+    }, {
+        "properties": {
+            "nombre_completo": "Provincia del Chubut",
+            "fuente": "IGN",
+            "id2": "AR-U",
+            "nombre": "Chubut",
+            "id": "26",
+            "categoria": "Provincia",
+            "iso_nombre": "Chubut"
+        },
+        "type": "Feature",
+        "geometry": {
+            "coordinates": [-68.5267593943345, -43.7886233529878],
+            "type": "Point"
+        },
+        "id": "49a1f97f-49ca-44ef-aa24-2a82ff2ded2a"
+    }, {
+        "properties": {
+            "nombre_completo": "Provincia de CÃ³rdoba",
+            "fuente": "IGN",
+            "id2": "AR-X",
+            "nombre": "CÃ³rdoba",
+            "id": "14",
+            "categoria": "Provincia",
+            "iso_nombre": "CÃ³rdoba"
+        },
+        "type": "Feature",
+        "geometry": {
+            "coordinates": [-63.8017532741662, -32.142932663607],
+            "type": "Point"
+        },
+        "id": "77639a5e-2976-47a2-9374-b830f481b24b"
+    }, {
+        "properties": {
+            "nombre_completo": "Provincia de Mendoza",
+            "fuente": "IGN",
+            "id2": "AR-M",
+            "nombre": "Mendoza",
+            "id": "50",
+            "categoria": "Provincia",
+            "iso_nombre": "Mendoza"
+        },
+        "type": "Feature",
+        "geometry": {
+            "coordinates": [-68.5831228183798, -34.6298873058957],
+            "type": "Point"
+        },
+        "id": "1f7f8970-0194-4696-ac8d-414f3fe7739a"
+    }, {
+        "properties": {
+            "nombre_completo": "Provincia de La Rioja",
+            "fuente": "IGN",
+            "id2": "AR-F",
+            "nombre": "La Rioja",
+            "id": "46",
+            "categoria": "Provincia",
+            "iso_nombre": "La Rioja"
+        },
+        "type": "Feature",
+        "geometry": {
+            "coordinates": [-67.1817359694432, -29.685776298315],
+            "type": "Point"
+        },
+        "id": "3d0bf0ae-704b-4ed6-a879-b686ce0d95fa"
+    }, {
+        "properties": {
+            "nombre_completo": "Provincia de Catamarca",
+            "fuente": "IGN",
+            "id2": "AR-K",
+            "nombre": "Catamarca",
+            "id": "10",
+            "categoria": "Provincia",
+            "iso_nombre": "Catamarca"
+        },
+        "type": "Feature",
+        "geometry": {
+            "coordinates": [-66.9476824299928, -27.3358332810217],
+            "type": "Point"
+        },
+        "id": "a5d793fc-40e1-4991-b8ea-1e4e5047f040"
+    }, {
+        "properties": {
+            "nombre_completo": "Provincia de La Pampa",
+            "fuente": "IGN",
+            "id2": "AR-L",
+            "nombre": "La Pampa",
+            "id": "42",
+            "categoria": "Provincia",
+            "iso_nombre": "La Pampa"
+        },
+        "type": "Feature",
+        "geometry": {
+            "coordinates": [-65.4466546606951, -37.1315537735949],
+            "type": "Point"
+        },
+        "id": "560281b8-25da-41b4-ab98-f7ef8b75937d"
+    }, {
+        "properties": {
+            "nombre_completo": "Provincia de Santiago del Estero",
+            "fuente": "IGN",
+            "id2": "AR-G",
+            "nombre": "Santiago del Estero",
+            "id": "86",
+            "categoria": "Provincia",
+            "iso_nombre": "Santiago del Estero"
+        },
+        "type": "Feature",
+        "geometry": {
+            "coordinates": [-63.2523866568588, -27.7824116550944],
+            "type": "Point"
+        },
+        "id": "9d804a12-cb07-4142-9cd9-28826adc531a"
+    }, {
+        "properties": {
+            "nombre_completo": "Provincia de Corrientes",
+            "fuente": "IGN",
+            "id2": "AR-W",
+            "nombre": "Corrientes",
+            "id": "18",
+            "categoria": "Provincia",
+            "iso_nombre": "Corrientes"
+        },
+        "type": "Feature",
+        "geometry": {
+            "coordinates": [-57.8012191977913, -28.7743047046407],
+            "type": "Point"
+        },
+        "id": "14fd6c52-f9b1-486a-89e8-a47e54921220"
+    }, {
+        "properties": {
+            "nombre_completo": "Provincia de Santa Fe",
+            "fuente": "IGN",
+            "id2": "AR-S",
+            "nombre": "Santa Fe",
+            "id": "82",
+            "categoria": "Provincia",
+            "iso_nombre": "Santa Fe"
+        },
+        "type": "Feature",
+        "geometry": {
+            "coordinates": [-60.9498369430241, -30.7069271588117],
+            "type": "Point"
+        },
+        "id": "69ec75d3-cea1-4bbc-b0eb-e1cb17a15c4d"
+    }, {
+        "properties": {
+            "nombre_completo": "Provincia de TucumÃ¡n",
+            "fuente": "IGN",
+            "id2": "AR-T",
+            "nombre": "TucumÃ¡n",
+            "id": "90",
+            "categoria": "Provincia",
+            "iso_nombre": "TucumÃ¡n"
+        },
+        "type": "Feature",
+        "geometry": {
+            "coordinates": [-65.3647579441481, -26.9478001830786],
+            "type": "Point"
+        },
+        "id": "5a84b446-15fd-4bf5-ac8b-2eb806c1f2b1"
+    }, {
+        "properties": {
+            "nombre_completo": "Provincia del NeuquÃ©n",
+            "fuente": "IGN",
+            "id2": "AR-Q",
+            "nombre": "NeuquÃ©n",
+            "id": "58",
+            "categoria": "Provincia",
+            "iso_nombre": "NeuquÃ©n"
+        },
+        "type": "Feature",
+        "geometry": {
+            "coordinates": [-70.1185705180601, -38.6417575824599],
+            "type": "Point"
+        },
+        "id": "710edb4d-527d-4c09-bba2-286da3ca49b5"
+    }, {
+        "properties": {
+            "nombre_completo": "Provincia de Salta",
+            "fuente": "IGN",
+            "id2": "AR-A",
+            "nombre": "Salta",
+            "id": "66",
+            "categoria": "Provincia",
+            "iso_nombre": "Salta"
+        },
+        "type": "Feature",
+        "geometry": {
+            "coordinates": [-64.8144629600627, -24.2991344492002],
+            "type": "Point"
+        },
+        "id": "4805c4ef-cc84-422d-8121-bda083a5a401"
+    }, {
+        "properties": {
+            "nombre_completo": "Provincia del Chaco",
+            "fuente": "IGN",
+            "id2": "AR-H",
+            "nombre": "Chaco",
+            "id": "22",
+            "categoria": "Provincia",
+            "iso_nombre": "Chaco"
+        },
+        "type": "Feature",
+        "geometry": {
+            "coordinates": [-60.7658307438603, -26.3864309061226],
+            "type": "Point"
+        },
+        "id": "7856b662-bc1f-4541-a554-e614bbd4be39"
+    }, {
+        "properties": {
+            "nombre_completo": "Provincia de Formosa",
+            "fuente": "IGN",
+            "id2": "AR-P",
+            "nombre": "Formosa",
+            "id": "34",
+            "categoria": "Provincia",
+            "iso_nombre": "Formosa"
+        },
+        "type": "Feature",
+        "geometry": {
+            "coordinates": [-59.9324405800872, -24.894972594871],
+            "type": "Point"
+        },
+        "id": "aea9c33c-3c7c-4510-95f9-7e994d9e43d2"
+    }, {
+        "properties": {
+            "nombre_completo": "Provincia de Jujuy",
+            "fuente": "IGN",
+            "id2": "AR-Y",
+            "nombre": "Jujuy",
+            "id": "38",
+            "categoria": "Provincia",
+            "iso_nombre": "Jujuy"
+        },
+        "type": "Feature",
+        "geometry": {
+            "coordinates": [-65.7642522180337, -23.3200784211351],
+            "type": "Point"
+        },
+        "id": "06bc73e2-28a0-4dd8-895a-7e53f9682535"
+    }, {
+        "properties": {
+            "nombre_completo": "Ciudad AutÃ³noma de Buenos Aires",
+            "fuente": "IGN",
+            "id2": "AR-C",
+            "nombre": "Ciudad AutÃ³noma de Buenos Aires",
+            "id": "02",
+            "categoria": "Ciudad AutÃ³noma",
+            "iso_nombre": "Ciudad AutÃ³noma de Buenos Aires"
+        },
+        "type": "Feature",
+        "geometry": {
+            "coordinates": [-58.4458563545429, -34.6144934119689],
+            "type": "Point"
+        },
+        "id": "f30aea68-d0db-402d-8e16-64f10aea41b8"
+    }, {
+        "properties": {
+            "nombre_completo": "Provincia de Buenos Aires",
+            "fuente": "IGN",
+            "id2": "AR-B",
+            "nombre": "Buenos Aires",
+            "id": "06",
+            "categoria": "Provincia",
+            "iso_nombre": "Buenos Aires"
+        },
+        "type": "Feature",
+        "geometry": {
+            "coordinates": [-60.5588319815719, -36.6769415180527],
+            "type": "Point"
+        },
+        "id": "916dd815-1bca-42c8-b30d-317d25f95872"
+    }, {
+        "properties": {
+            "nombre_completo": "Provincia de Tierra del Fuego, AntÃ¡rtida e Islas del AtlÃ¡ntico Sur",
+            "fuente": "IGN",
+            "id2": "AR-V",
+            "nombre": "Tierra del Fuego, AntÃ¡rtida e Islas del AtlÃ¡ntico Sur",
+            "id": "94",
+            "categoria": "Provincia",
+            "iso_nombre": "Tierra del Fuego"
+        },
+        "type": "Feature",
+        "geometry": {
+            "coordinates": [-50.7427486049785, -82.52151781221],
+            "type": "Point"
+        },
+        "id": "d922c049-90b4-4e4e-8678-ad512dbf4726"
+    }]
+}

@@ -14,15 +14,13 @@ sap.ui.define([
 		onInit: function () {
 
             oController = this;
-            oController.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-            oController.oRouter.attachRouteMatched(oController._onRouteMatched, oController);
+            var oRouter = this.getRouter();
+            oRouter.getRoute("complaint").attachMatched(this._onRouteMatched, this);
             
         },
 
         _onRouteMatched: function (oEvent) {
-
-            var nCustomer = oEvent.getParameter("arguments").Idcustomer;
-            if (nCustomer){
+           /* if (nCustomer){
                 var oModel = this.getView().getModel();
                 var sPath = "/ClientesSet('" + nCustomer + "')";
                 oModel.read(sPath, {
@@ -33,9 +31,26 @@ sap.ui.define([
                         var mensaje = "Error info customer" + nCustomer;
                         MessageToast.show(mensaje);
                     }
-                });
+                }); */
+                
+            // Getting customer ID
+            var oCustomer = oEvent.getParameter("arguments");
+            // reading oData
+			oController._readById(oCustomer.Idcustomer);
+			var oView = this.getView();
+			oView.bindElement({
+				path: "/complaint(" + oCustomer.Idcustomer + ")",
+				events: {
+					dataRequested: function (oEvent) {
+						oView.setBusy(true);
+					},
+					dataReceived: function (oEvent) {
+						oView.setBusy(false);
+					}
+				}
+			});
 
-                oModel = this.getView().getModel();
+            /*    var oModel = this.getView().getModel(),
                 sPath = "/ClientesSet('" + nCustomer + "')/ReclamosSet";
                 oModel.read(sPath, {
                     success: function (resultado) {
@@ -47,7 +62,7 @@ sap.ui.define([
                         MessageToast.show(mensaje);
                     }
                 });
-            }
+            } */
         },
 
         _setCabecera: function (result) {
@@ -63,7 +78,30 @@ sap.ui.define([
             oController.getView().byId("_city").setText(texto);
             texto = result.Tel;
             oController.getView().byId("_phone").setText(texto);
+        },
+
+         _readById: function (oId) {
+			var oModel = oController.getView().getModel();
+
+			var sPath = oModel.createKey("/ClientesSet", {
+				Idcustomer: oId
+			});
+
+			oModel.read(sPath, {
+				success: function (result) {
+                oController._setCabecera(result);
+
+				}.bind(this),
+				error: function (error) {
+					MessageToast.show("Error");
+					//If not user, then display not found
+					oController.getRouter().getTargets().display("notFound");
+
+				}
+			});
+
         }
+        
         
 
 		

@@ -1,43 +1,58 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:vbm="sap.ui.vbm" xmlns:l="sap.ui.layout" controllerName="ns.HTML5Module.controller.Consumptions" displayBlock="true">
+<mvc:View  controllerName="ns.HTML5Module.controller.Consumptions" 
+    xmlns="sap.suite.ui.microchart"
+	xmlns:m="sap.m"
+	xmlns:layout="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true">
+<m:Page id="pageId" title="Consumptions" floatingFooter="true" backgroundDesign="Solid" showNavButton="true" navButtonPress=".onNavBack">
 
-<Page xmlns="sap.m" id="pageId" title="Page Title" floatingFooter="true" backgroundDesign="Solid" showNavButton="true">
+    <m:headerContent>
 
-    <headerContent>
-
-        <Button icon="sap-icon://action" tooltip="Share" id="button0"/>
-
-        
-
-    </headerContent>
-
-    <footer>
-
-        <OverflowToolbar id="toolbar1">
-
-            <ToolbarSpacer/>
-
-            <Button type="Accept" text="Accept"/>
-
-            </OverflowToolbar>
+        <m:Button icon="sap-icon://action" tooltip="Share" id="button0"/>
 
         
 
-    </footer>
+    </m:headerContent>
 
-    <content>
-    </content>
-        <vbm:AnalyticMap xmlns:l="sap.ui.layout" scaleVisible="false" id="vbi" enableAnimation="true" zoomlevel="5" initialPosition="-60;-35;0" initialZoom="3" height="75%" width="100%">
-            <vbm:regions>
-				<vbm:Region code="{Map>code}" color="{Map>color}" tooltip="{Map>county}"/>
-			</vbm:regions>
-			<vbm:legend>
-				<vbm:Legend id="legend" caption="Decline in birth rate" items="{Map>/Legend}">
-				<vbm:LegendItem text="{Map>text}" color="{Map>color}"/>
-				</vbm:Legend>
-			</vbm:legend>
-	    </vbm:AnalyticMap>
-   
+    <m:content>
+    
+    	<m:FlexBox  height="15rem" alignItems="Center" class="sapUiSmallMargin">
+			<m:items>
+				<InteractiveLineChart id="1SProvince" selectionChanged="selectionChanged" press="press" precedingPoint="15"
+									  succeedingPoint="89">
+					<points>
+                        <InteractiveLineChartPoint id="m01" value="69.9" label="Jan"/>
+                        <InteractiveLineChartPoint id="m02" value="69.9" label="Feb"/>
+                        <InteractiveLineChartPoint id="m03" value="69.9" label="March"/>
+                        <InteractiveLineChartPoint id="m04" value="69.9" label="April"/>
+						<InteractiveLineChartPoint id="m05" value="33.1" label="May"/>
+						<InteractiveLineChartPoint id="m06" value="12" label="June"/>
+					</points>
+				</InteractiveLineChart>
+                <InteractiveLineChart id="2SProvince" selectionChanged="selectionChanged" press="press" precedingPoint="15"
+				    visible="false" succeedingPoint="89">
+					<points>
+						<InteractiveLineChartPoint id="m07" value="51.4" label="July"/>
+						<InteractiveLineChartPoint id="m08" value="52" label="Aug"/>
+						<InteractiveLineChartPoint id="m09" value="69.9" label="Sep"/>
+						<InteractiveLineChartPoint id="m10" value="0.9" label="Oct"/>
+                        <InteractiveLineChartPoint id="m11" value="69.9" label="Nov"/>
+                        <InteractiveLineChartPoint id="m12" value="69.9" label="Dec"/>
+					</points>
+				</InteractiveLineChart>
+			</m:items>
+		</m:FlexBox>
+       
+    </m:content>
+    <m:footer>
+        <m:OverflowToolbar id="toolbar1">
 
-    </Page>
+            <m:ToolbarSpacer/>
+
+            <m:Button type="Accept" text="Accept"/>
+
+        </m:OverflowToolbar>
+    </m:footer>
+
+    </m:Page>
 
 </mvc:View>
