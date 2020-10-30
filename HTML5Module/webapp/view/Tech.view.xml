@@ -1,4 +1,4 @@
-<mvc:View xmlns:uxap="sap.uxap" xmlns:layout="sap.ui.layout" xmlns:f="sap.f" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ns.HTML5Module.controller.Tech" displayBlock="true">
+<mvc:View xmlns:uxap="sap.uxap" xmlns:layout="sap.ui.layout" xmlns:grid="sap.ui.layout.cssgrid" xmlns:t="sap.tnt" xmlns:f="sap.f" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ns.HTML5Module.controller.Tech" displayBlock="true">
 <Page xmlns="sap.m" showHeader="true" id="techPage" title="{i18n>titleTech}" floatingFooter="true" navButtonPress=".onNavBack" showNavButton="true">
         <uxap:ObjectPageLayout>
             <uxap:headerTitle>
@@ -70,9 +70,27 @@
                 <uxap:ObjectPageSection title="{i18n>techSupport}">
                     <uxap:ObjectPageSubSection>
                         <uxap:blocks>
-                        <List id="complaintsList" headerText="{i18n>claimsHandled}" items="{Complaints>/}" noDataText="{i18n>noComplaints}">
-                            <DisplayListItem label="{Complaints>Idcomplaint/}" value="{Complaints>Dateclosed/}"/>
-                        </List>
+                        <f:GridList headerText="{i18n>claimsHandled}" items="{Complaints>/}">
+                        	<f:customLayout>
+				                <grid:GridBoxLayout boxWidth="17.5rem"/>
+			                </f:customLayout>
+                            <f:GridListItem>
+                                <VBox height="100%" justifyContent="SpaceBetween">
+                                    <layoutData>
+                                        <FlexItemData growFactor="1" shrinkFactor="0"/><!-- Don't shrink below minimum size. Fill space if available. -->
+                                    </layoutData>
+
+                                    <VBox class="sapUiSmallMargin">
+                                        <HBox justifyContent="SpaceBetween">
+                                            <Title text="#{Complaints>Idcomplaint}" wrapping="true"/>
+                                            <t:InfoLabel text="Solved" colorScheme="7"/>
+                                        </HBox>
+                                        <Label text="{Complaints>Dateclosed}" wrapping="true" class="sapUiTinyMarginBottom"/>
+                                        <Text text="{Complaints>Diagnostico}." wrapping="true"/>
+                                    </VBox>
+                                </VBox>
+                            </f:GridListItem>
+                        </f:GridList>
                         </uxap:blocks>
                     </uxap:ObjectPageSubSection>
                 </uxap:ObjectPageSection>
