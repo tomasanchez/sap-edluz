@@ -1,3 +1,3 @@
-# sap-edluz
+# Edluz
 
-SAP Fiori Custom Application
+Edluz is a SAP Fiori Custom Application, made during a bootcamp in SAP UI5.
